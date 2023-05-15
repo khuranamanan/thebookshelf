@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Roboto+Slab:wght@300;400;500&display=swap");
+
+:root {
+  --color-1: #ffcd3c;
+  --color-2: #111111;
+  --color-3: #ffffff;
+  --color-4: #ffda6f;
+  --color-5: #ffc009;
+  --color-6: #2a2a2a;
+  --color-7: #ddd;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Alata", sans-serif;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+header {
+  grid-row: 1;
+}
+
+main {
+  grid-row: 2;
+  min-height: 50vh;
+}
+
+footer {
+  grid-row: 3;
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  main {
+    grid-row: 2;
+    grid-column: 1;
+  }
+}

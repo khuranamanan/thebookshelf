@@ -1,0 +1,139 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-3);
+  color: var(--color-2);
+  padding: 10px 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.navbar-branding img {
+  max-height: 50px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: var(--color-2);
+  font-family: "Alata", sans-serif;
+  font-weight: 500;
+  margin-right: 10px;
+  position: relative;
+  padding: 4px 6px;
+  border-radius: 5px;
+}
+
+.navbar-link.active {
+  background-color: var(--color-4);
+
+  font-weight: bolder;
+}
+
+.navbar-link:hover {
+  color: var(--color-5);
+}
+
+.navbar-link:hover.active {
+  color: var(--color-2);
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  height: 2px;
+  width: 80%;
+  background-color: var(--color-6);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navbar-link:hover::after {
+  opacity: 1;
+}
+
+.navbar-addons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-addons-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-addons-btns button {
+  white-space: nowrap;
+}
+
+.search-box {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+  border: 1px solid var(--color-7);
+  background-color: var(--color-3);
+  color: var(--color-2);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.search-box::placeholder {
+  color: var(--color-6);
+}
+
+.shopping-bag-button,
+.sign-in-button {
+  font-size: 1rem;
+  border: none;
+  background: none;
+  color: var(--color-2);
+  font-family: "Alata", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.shopping-bag-button i {
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .navbar-branding {
+    order: 1;
+  }
+
+  .navbar-links {
+    order: 3;
+    justify-content: center;
+  }
+
+  .navbar-link {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .navbar-addons {
+    order: 2;
+    justify-content: center;
+  }
+
+  .search-box {
+    margin: 0;
+  }
+}

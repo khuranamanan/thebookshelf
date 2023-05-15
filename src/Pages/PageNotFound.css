@@ -1,0 +1,25 @@
+.page-not-found {
+  margin: 20px auto;
+  height: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.page-not-found h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.page-not-found p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.page-not-found p:last-of-type {
+  margin-bottom: 0;
+}
+
+.page-not-found img {
+  max-height: 10rem;
+}
