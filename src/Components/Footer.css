@@ -1,7 +1,8 @@
 .footer {
-  background-color: var(--color-2);
   color: var(--color-3);
   padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-content {

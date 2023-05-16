@@ -1,11 +1,9 @@
 .navbar {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  background-color: var(--color-3);
   color: var(--color-2);
   padding: 10px 20px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .navbar-branding img {
@@ -13,7 +11,6 @@
 }
 
 .navbar-links {
-  display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
 }
@@ -60,14 +57,8 @@
   opacity: 1;
 }
 
-.navbar-addons {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
+.navbar-addons,
 .navbar-addons-btns {
-  display: flex;
   gap: 1rem;
 }
 
@@ -79,7 +70,6 @@
   padding: 8px;
   border: none;
   border-radius: 5px;
-  margin: 0 10px;
   border: 1px solid var(--color-7);
   background-color: var(--color-3);
   color: var(--color-2);
@@ -91,30 +81,81 @@
 }
 
 .shopping-bag-button,
-.sign-in-button {
-  font-size: 1rem;
+.sign-in-button,
+.search-icon,
+.search-close-icon,
+.hamburger-icons {
+  font-size: 1.5rem;
   border: none;
   background: none;
-  color: var(--color-2);
+  color: var(--color-6);
   font-family: "Alata", sans-serif;
   font-weight: 500;
   cursor: pointer;
 }
 
-.shopping-bag-button i {
-  margin-right: 5px;
+.hamburger-icons {
+  /* padding: 10px; */
+  margin-left: 10px;
+}
+
+.sign-in-button {
+  font-size: 1.6rem;
+}
+
+.mobile-nav-links {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .mobile-nav-links {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .mobile-nav-links-box {
+    left: 0;
+    width: calc(100vw - 30%);
+    top: 125px;
+    right: 0;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .navbar {
-    flex-direction: column;
+    flex-wrap: wrap;
     padding: 10px;
-    justify-content: center;
-    align-items: center;
     gap: 1rem;
+    position: relative;
+  }
+
+  .desktop-nav-links-box {
+    display: none;
+  }
+
+  .mobile-nav-links {
+    display: inline-block;
+  }
+
+  .mobile-nav-links-box {
+    background-color: var(--color-3);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 74px;
   }
 
   .navbar-branding {
+    flex-grow: 1;
     order: 1;
   }
 
