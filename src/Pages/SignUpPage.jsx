@@ -56,7 +56,8 @@ function SignUpPage() {
         <img src={signUpImg} alt="Book" className="book-image" />
         <div className="overlay"></div>
         <div className="quote">
-          "A reader lives a thousand lives before he dies." - George R.R. Martin
+          "It is our choices, Harry, that show what we truly are, far more than
+          our abilities." - Albus Dumbledore
         </div>
       </div>
     </div>
