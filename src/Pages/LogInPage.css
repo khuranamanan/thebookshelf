@@ -1,0 +1,123 @@
+.login-page {
+  width: 100%;
+  display: flex;
+  height: 100vh;
+}
+
+.quote-box {
+  flex: 1;
+  position: relative;
+  background-color: var(--color-8);
+  overflow: hidden;
+}
+
+.book-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.quote {
+  font-size: 2rem;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+  color: var(--color-3);
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.login-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--color-3);
+  color: var(--color-2);
+}
+
+.branding-logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.branding-logo img {
+  max-height: 5rem;
+  padding: 5px;
+}
+
+.login-page-heading {
+  font-size: 2rem;
+  font-family: "Roboto Slab", serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+}
+
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  border: 1px solid var(--color-2);
+  border-radius: 5px;
+}
+
+.login-button,
+.test-login-button {
+  padding: 10px;
+  background-color: var(--color-1);
+  border: none;
+  border-radius: 5px;
+  color: var(--color-2);
+  cursor: pointer;
+}
+
+.test-login-button {
+  background-color: var(--color-5);
+}
+
+.new-user-prompt {
+  margin-top: 20px;
+}
+
+.new-user-prompt a {
+  color: var(--color-9);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .quote-box {
+    order: 2;
+  }
+
+  .login-box {
+    order: 1;
+  }
+
+  .new-user-prompt {
+    margin: 20px;
+  }
+}
