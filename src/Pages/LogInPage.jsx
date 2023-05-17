@@ -1,10 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./LogInPage.css";
 import logInImg from "../assets/LogInPageImg.jpg";
 import logo from "../assets/Colorlogo.png";
+import { AuthContext } from "../Contexts/AuthContext";
 
 function LogInPage() {
+  const [logInFormData, setLogInFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+  const { logInUser, loginData } = useContext(AuthContext);
+
+  function handleLogInFormSubmit(event) {
+    event.preventDefault();
+    logInUser(logInFormData.email, logInFormData.password);
+  }
+
+  const loginErrorHandler = loginData.isError && (
+    <p className="login-error"> {loginData.isError} </p>
+  );
+
+  useEffect(() => {
+    if (loginData.isLoggedIn) {
+      setTimeout(() => navigate("/"), 1000);
+    }
+  }, [loginData.isLoggedIn, navigate]);
+
   return (
     <div className="login-page">
       <div className="quote-box">
@@ -18,15 +41,44 @@ function LogInPage() {
         <div className="branding-logo">
           <img src={logo} alt="the-bookshelf-logo" />
         </div>
-        <div className="form-fields">
+        <form className="form-fields" onSubmit={handleLogInFormSubmit}>
           <h1 className="login-page-heading">Log In</h1>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button className="login-button">Login</button>
-          <button className="test-login-button">
+          <input
+            type="email"
+            placeholder="Email"
+            value={logInFormData.email}
+            onChange={(e) =>
+              setLogInFormData((prev) => ({ ...prev, email: e.target.value }))
+            }
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) =>
+              setLogInFormData((prev) => ({
+                ...prev,
+                password: e.target.value,
+              }))
+            }
+            value={logInFormData.password}
+          />
+          <button className="login-button" type="submit">
+            Login
+          </button>
+          <button
+            className="test-login-button"
+            type="submit"
+            onClick={() =>
+              setLogInFormData({
+                email: "adarshbalika@gmail.com",
+                password: "adarshbalika",
+              })
+            }
+          >
             Login with Test Credentials
           </button>
-        </div>
+        </form>
+        {loginErrorHandler}
         <div className="new-user-prompt">
           New user? <Link to="/signup">Sign Up</Link>
         </div>
