@@ -1,0 +1,17 @@
+.profile-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-icon {
+  margin-bottom: 20px;
+}
+
+.user-greeting {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.profile-buttons {
+  gap: 10px;
+}

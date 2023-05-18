@@ -67,8 +67,66 @@ function AuthProvider({ children }) {
     }
   }
 
+  function signOutUser() {
+    setLoginData({
+      token: null,
+      user: null,
+      isLoggedIn: false,
+      isError: null,
+    });
+
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+  }
+
+  function handleAddAddress(addressToAdd) {
+    const updatedAddresses = [
+      ...loginData.user.userAddresses,
+      { ...addressToAdd, id: loginData.user.userAddresses.length + 1 },
+    ];
+
+    setLoginData({
+      ...loginData,
+      user: {
+        ...loginData.user,
+        userAddresses: updatedAddresses,
+      },
+    });
+
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ ...loginData.user, userAddresses: updatedAddresses })
+    );
+  }
+
+  function editAddresses(updatedAddresses) {
+    setLoginData({
+      ...loginData,
+      user: {
+        ...loginData.user,
+        userAddresses: updatedAddresses,
+      },
+    });
+
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ ...loginData.user, userAddresses: updatedAddresses })
+    );
+  }
+
+  console.log(loginData);
+
   return (
-    <AuthContext.Provider value={{ logInUser, signUpUser, loginData }}>
+    <AuthContext.Provider
+      value={{
+        logInUser,
+        signUpUser,
+        signOutUser,
+        loginData,
+        handleAddAddress,
+        editAddresses,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -1,0 +1,64 @@
+.user-addresses-page {
+  background-color: var(--color-3);
+  color: var(--color-2);
+  padding: 20px;
+  max-width: 1200px;
+  margin: 10px;
+}
+
+.user-addresses-page .user-addresses-page h2 {
+  margin-bottom: 20px;
+}
+
+.user-addresses-page .address-form {
+  margin-bottom: 20px;
+}
+
+.user-addresses-page .form-label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.user-addresses-page .form-input {
+  padding: 10px;
+  border: 1px solid var(--color-2);
+  border-radius: 5px;
+  width: 100%;
+}
+
+.user-addresses-page .form-button {
+  padding: 10px;
+  background-color: var(--color-1);
+  border: none;
+  border-radius: 5px;
+  color: var(--color-2);
+  cursor: pointer;
+}
+
+.user-addresses-page .form-button:hover {
+  background-color: var(--color-4);
+}
+
+.user-addresses-page button {
+  margin-top: 10px;
+}
+
+.user-addresses-page hr {
+  margin: 20px 0;
+}
+
+.user-addresses-page .edit-button,
+.user-addresses-page .cancel-button {
+  padding: 10px;
+  background-color: var(--color-1);
+  border: none;
+  border-radius: 5px;
+  color: var(--color-2);
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.user-addresses-page .edit-button:hover,
+.user-addresses-page .cancel-button:hover {
+  background-color: var(--color-4);
+}

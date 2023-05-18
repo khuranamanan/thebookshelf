@@ -13,6 +13,8 @@ import SignUpPage from "./Pages/SignUpPage";
 import CartPage from "./Pages/CartPage";
 import WishlistPage from "./Pages/WishlistPage";
 import PrivateRoute from "./Components/PrivateRoute";
+import ProfilePage from "./Pages/ProfilePage";
+import UserAddressesPage from "./Pages/Address-Management/UserAddressesPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +22,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<RootLayout />}>
         <Route index element={<HomePage />} />
         <Route
-          path="/cart"
+          path="cart"
           element={
             <PrivateRoute>
               <CartPage />
@@ -35,6 +37,24 @@ const router = createBrowserRouter(
             </PrivateRoute>
           }
         />
+        <Route path="profile">
+          <Route
+            index
+            element={
+              <PrivateRoute>
+                <ProfilePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="addresses"
+            element={
+              <PrivateRoute>
+                <UserAddressesPage />
+              </PrivateRoute>
+            }
+          />
+        </Route>
 
         <Route path="mockman" element={<MockmanPage />} />
         <Route path="*" element={<PageNotFound />} />

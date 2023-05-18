@@ -31,7 +31,10 @@ function NavigationBar() {
           >
             <FiShoppingBag />
           </button>
-          <button className="sign-in-button" onClick={() => navigate("/login")}>
+          <button
+            className="sign-in-button"
+            onClick={() => navigate("/profile")}
+          >
             <BiUserCircle />
           </button>
         </div>
