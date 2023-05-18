@@ -4,6 +4,7 @@ import "./LogInPage.css";
 import logInImg from "../assets/LogInPageImg.jpg";
 import logo from "../assets/Colorlogo.png";
 import { AuthContext } from "../Contexts/AuthContext";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function LogInPage() {
   const [logInFormData, setLogInFormData] = useState({
@@ -13,6 +14,7 @@ function LogInPage() {
   const navigate = useNavigate();
   const { logInUser, loginData } = useContext(AuthContext);
   const [formInputError, setFormInputError] = useState();
+  const [showPassword, setShowPassword] = useState();
 
   function handleLogInFormSubmit(event) {
     event.preventDefault();
@@ -31,6 +33,12 @@ function LogInPage() {
 
   const formInputErrorDisplay = formInputError && (
     <p className="login-error"> {formInputError} </p>
+  );
+
+  const showPasswordIcon = showPassword ? (
+    <AiFillEyeInvisible onClick={() => setShowPassword(false)} />
+  ) : (
+    <AiFillEye onClick={() => setShowPassword(true)} />
   );
 
   useEffect(() => {
@@ -62,17 +70,23 @@ function LogInPage() {
               setLogInFormData((prev) => ({ ...prev, email: e.target.value }))
             }
           />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) =>
-              setLogInFormData((prev) => ({
-                ...prev,
-                password: e.target.value,
-              }))
-            }
-            value={logInFormData.password}
-          />
+          <div className="password-input-box flex-center">
+            <input
+              type={showPassword ? "text" : "password"}
+              className="password-input-field"
+              placeholder="Password"
+              onChange={(e) =>
+                setLogInFormData((prev) => ({
+                  ...prev,
+                  password: e.target.value,
+                }))
+              }
+              value={logInFormData.password}
+            />
+            <div className="show-password-icon flex-center">
+              {showPasswordIcon}
+            </div>
+          </div>
           <button className="login-button" type="submit">
             Login
           </button>

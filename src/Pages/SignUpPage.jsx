@@ -4,6 +4,7 @@ import "./SignUpPage.css";
 import signUpImg from "../assets/SignUpPageImg.jpg";
 import logo from "../assets/Colorlogo.png";
 import { AuthContext } from "../Contexts/AuthContext";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function SignUpPage() {
   const { signUpUser, loginData } = useContext(AuthContext);
@@ -15,6 +16,10 @@ function SignUpPage() {
     confirmPassword: "",
   });
   const [formInputError, setFormInputError] = useState();
+  const [showPassword, setShowPassword] = useState({
+    password: false,
+    confirmPassword: false,
+  });
   const navigate = useNavigate();
 
   function handleSignUpFormSubmit(e) {
@@ -50,6 +55,30 @@ function SignUpPage() {
 
   const apiErrorDisplay = loginData.isError && (
     <p className="form-input-error"> {loginData.isError} </p>
+  );
+
+  const showPasswordIcon = showPassword.password ? (
+    <AiFillEyeInvisible
+      onClick={() => setShowPassword({ ...showPassword, password: false })}
+    />
+  ) : (
+    <AiFillEye
+      onClick={() => setShowPassword({ ...showPassword, password: true })}
+    />
+  );
+
+  const showConfirmPasswordIcon = showPassword.confirmPassword ? (
+    <AiFillEyeInvisible
+      onClick={() =>
+        setShowPassword({ ...showPassword, confirmPassword: false })
+      }
+    />
+  ) : (
+    <AiFillEye
+      onClick={() =>
+        setShowPassword({ ...showPassword, confirmPassword: true })
+      }
+    />
   );
 
   useEffect(() => {
@@ -105,30 +134,40 @@ function SignUpPage() {
             }
             required
           />
-          <input
-            type="password"
-            className="input-password-field"
-            placeholder="Create Password"
-            onChange={(e) =>
-              setSignUpFormData((prev) => ({
-                ...prev,
-                password: e.target.value,
-              }))
-            }
-            required
-          />
-          <input
-            type="password"
-            className="input-password-field"
-            placeholder="Confirm Password"
-            onChange={(e) =>
-              setSignUpFormData((prev) => ({
-                ...prev,
-                confirmPassword: e.target.value,
-              }))
-            }
-            required
-          />
+          <div className="password-input-box flex-center">
+            <input
+              type={showPassword.password ? "text" : "password"}
+              className="password-input-field"
+              placeholder="Create Password"
+              onChange={(e) =>
+                setSignUpFormData((prev) => ({
+                  ...prev,
+                  password: e.target.value,
+                }))
+              }
+              required
+            />
+            <div className="show-password-icon flex-center">
+              {showPasswordIcon}
+            </div>
+          </div>
+          <div className="password-input-box flex-center">
+            <input
+              type={showPassword.confirmPassword ? "text" : "password"}
+              className="password-input-field"
+              placeholder="Confirm Password"
+              onChange={(e) =>
+                setSignUpFormData((prev) => ({
+                  ...prev,
+                  confirmPassword: e.target.value,
+                }))
+              }
+              required
+            />
+            <div className="show-password-icon flex-center">
+              {showConfirmPasswordIcon}
+            </div>
+          </div>
           <button className="signup-button" type="submit">
             Sign Up
           </button>
