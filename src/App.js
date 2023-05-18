@@ -10,12 +10,31 @@ import PageNotFound from "./Pages/PageNotFound";
 import MockmanPage from "./Pages/MockmanPage";
 import LogInPage from "./Pages/LogInPage";
 import SignUpPage from "./Pages/SignUpPage";
+import CartPage from "./Pages/CartPage";
+import WishlistPage from "./Pages/WishlistPage";
+import PrivateRoute from "./Components/PrivateRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<RootLayout />}>
         <Route index element={<HomePage />} />
+        <Route
+          path="/cart"
+          element={
+            <PrivateRoute>
+              <CartPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="wishlist"
+          element={
+            <PrivateRoute>
+              <WishlistPage />
+            </PrivateRoute>
+          }
+        />
 
         <Route path="mockman" element={<MockmanPage />} />
         <Route path="*" element={<PageNotFound />} />

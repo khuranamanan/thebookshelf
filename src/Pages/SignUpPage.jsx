@@ -83,7 +83,7 @@ function SignUpPage() {
 
   useEffect(() => {
     if (loginData.isLoggedIn) {
-      navigate("/");
+      navigate("/", { replace: true });
     }
   }, [loginData.isLoggedIn, navigate]);
 

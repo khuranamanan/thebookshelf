@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./LogInPage.css";
 import logInImg from "../assets/LogInPageImg.jpg";
 import logo from "../assets/Colorlogo.png";
@@ -12,6 +12,7 @@ function LogInPage() {
     password: "",
   });
   const navigate = useNavigate();
+  const location = useLocation();
   const { logInUser, loginData } = useContext(AuthContext);
   const [formInputError, setFormInputError] = useState();
   const [showPassword, setShowPassword] = useState();
@@ -43,9 +44,9 @@ function LogInPage() {
 
   useEffect(() => {
     if (loginData.isLoggedIn) {
-      setTimeout(() => navigate("/"), 1000);
+      navigate(location?.state?.from || "/", { replace: true });
     }
-  }, [loginData.isLoggedIn, navigate]);
+  }, [loginData.isLoggedIn, navigate, location]);
 
   return (
     <div className="login-page">
