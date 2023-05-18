@@ -12,14 +12,25 @@ function LogInPage() {
   });
   const navigate = useNavigate();
   const { logInUser, loginData } = useContext(AuthContext);
+  const [formInputError, setFormInputError] = useState();
 
   function handleLogInFormSubmit(event) {
     event.preventDefault();
-    logInUser(logInFormData.email, logInFormData.password);
+    if (!logInFormData.email.trim() || !logInFormData.password.trim()) {
+      setFormInputError(
+        "Error: Incomplete Form Submission. Please fill in all required fields."
+      );
+      return;
+    }
+    logInUser(logInFormData.email.trim(), logInFormData.password.trim());
   }
 
   const loginErrorHandler = loginData.isError && (
     <p className="login-error"> {loginData.isError} </p>
+  );
+
+  const formInputErrorDisplay = formInputError && (
+    <p className="login-error"> {formInputError} </p>
   );
 
   useEffect(() => {
@@ -79,6 +90,7 @@ function LogInPage() {
           </button>
         </form>
         {loginErrorHandler}
+        {formInputErrorDisplay}
         <div className="new-user-prompt">
           New user? <Link to="/signup">Sign Up</Link>
         </div>

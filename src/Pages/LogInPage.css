@@ -107,8 +107,10 @@ input[type="password"] {
 
 .login-error {
   color: red;
-  font-size: 14px;
+  font-size: 1rem;
+  padding: 10px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
