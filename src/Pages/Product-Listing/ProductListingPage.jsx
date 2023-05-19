@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import FilterBox from "./FilterBox";
-import ProductCard from "./ProductCard";
+import ProductCard from "../../Components/ProductCard/ProductCard";
 import "./ProductListingPage.css";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
 

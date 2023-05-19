@@ -1,6 +1,7 @@
 import calculateDiscount from "../../utils/calculateDiscount";
 import { AiFillHeart, AiFillStar } from "react-icons/ai";
 import { FaShoppingBag } from "react-icons/fa";
+import "./ProductCard.css";
 
 function ProductCard({ product }) {
   const { img, title, author, price, originalPrice, isBestSeller, rating } =
