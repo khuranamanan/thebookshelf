@@ -2,11 +2,14 @@ import { useContext, useState } from "react";
 import "./UserAddressesPage.css";
 import { AuthContext } from "../../Contexts/AuthContext";
 import AddressForm from "./Components/AddressForm";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { useNavigate } from "react-router";
 
 function UserAddressesPage() {
-  const { loginData, handleAddAddress, editAddresses } =
+  const { loginData, handleAddAddress, editAddresses, deleteAddress } =
     useContext(AuthContext);
   const [editingAddressId, setEditingAddressId] = useState(null);
+  const navigate = useNavigate();
 
   const handleEditAddress = (address) => {
     const updatedAddresses = loginData.user.userAddresses.map((addr) => {
@@ -51,12 +54,20 @@ function UserAddressesPage() {
               </button>
             </div>
           ) : (
-            <button
-              onClick={() => setEditingAddressId(address.id)}
-              className="edit-button"
-            >
-              Edit
-            </button>
+            <>
+              <button
+                onClick={() => setEditingAddressId(address.id)}
+                className="edit-button"
+              >
+                Edit
+              </button>
+              <button
+                className="delete-button"
+                onClick={() => deleteAddress(address.id)}
+              >
+                Delete Address
+              </button>
+            </>
           )}
           <hr />
         </div>
@@ -68,6 +79,9 @@ function UserAddressesPage() {
   return (
     <div className="user-addresses-page">
       <h2>User Addresses</h2>
+      <button className="go-back-btn flex-center" onClick={() => navigate(-1)}>
+        <AiOutlineArrowLeft size={20} /> Go Back
+      </button>
       {displayAddressesLogic}
       <h3>Add Address</h3>
       <AddressForm onSubmit={handleAddAddress} />

@@ -15,7 +15,7 @@ export const users = [
     password: "adarshbalika",
     userAddresses: [
       {
-        id: 3,
+        id: uuid(),
         firstName: "Alex",
         lastName: "Johnson",
         addressLine1: "789 Oak St",
@@ -37,7 +37,7 @@ export const users = [
     password: "manankhurana",
     userAddresses: [
       {
-        id: 1,
+        id: uuid(),
         firstName: "John",
         lastName: "Doe",
         addressLine1: "123 Main St",
@@ -48,7 +48,7 @@ export const users = [
         country: "India",
       },
       {
-        id: 2,
+        id: uuid(),
         firstName: "Jane",
         lastName: "Smith",
         addressLine1: "456 Elm St",

@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import logInService from "../Services/logInService";
 import signUpService from "../Services/signUpService";
+import { v4 as uuid } from "uuid";
 
 export const AuthContext = createContext();
 
@@ -82,7 +83,7 @@ function AuthProvider({ children }) {
   function handleAddAddress(addressToAdd) {
     const updatedAddresses = [
       ...loginData.user.userAddresses,
-      { ...addressToAdd, id: loginData.user.userAddresses.length + 1 },
+      { ...addressToAdd, id: uuid() },
     ];
 
     setLoginData({
@@ -114,7 +115,24 @@ function AuthProvider({ children }) {
     );
   }
 
-  console.log(loginData);
+  function deleteAddress(addressIdToDelete) {
+    const updatedAddresses = loginData.user.userAddresses.filter(
+      (addr) => addr.id !== addressIdToDelete
+    );
+
+    setLoginData({
+      ...loginData,
+      user: {
+        ...loginData.user,
+        userAddresses: updatedAddresses,
+      },
+    });
+
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ ...loginData.user, userAddresses: updatedAddresses })
+    );
+  }
 
   return (
     <AuthContext.Provider
@@ -125,6 +143,7 @@ function AuthProvider({ children }) {
         loginData,
         handleAddAddress,
         editAddresses,
+        deleteAddress,
       }}
     >
       {children}
