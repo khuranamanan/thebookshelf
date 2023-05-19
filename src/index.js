@@ -5,15 +5,18 @@ import App from "./App";
 import { createRoot } from "react-dom/client";
 import { makeServer } from "./server";
 import BooksDataProvider from "./Contexts/BooksDataContext";
+import AuthProvider from "./Contexts/AuthContext";
 
 // Call make Server
 makeServer();
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BooksDataProvider>
-      <App />
-    </BooksDataProvider>
+    <AuthProvider>
+      <BooksDataProvider>
+        <App />
+      </BooksDataProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
 

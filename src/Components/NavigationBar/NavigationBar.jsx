@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //Components
 import NavSearchBox from "./NavSearchBox";
 import NavLinks from "./NavLinks";
@@ -11,6 +11,8 @@ import "./NavigationBar.css";
 import MobileNavLinks from "./MobileNavLinks";
 
 function NavigationBar() {
+  const navigate = useNavigate();
+
   return (
     <nav className="navbar flex-center">
       <MobileNavLinks />
@@ -23,10 +25,16 @@ function NavigationBar() {
       <div className="navbar-addons flex-center">
         <NavSearchBox />
         <div className="navbar-addons-btns flex-center">
-          <button className="shopping-bag-button">
+          <button
+            className="shopping-bag-button"
+            onClick={() => navigate("/cart")}
+          >
             <FiShoppingBag />
           </button>
-          <button className="sign-in-button">
+          <button
+            className="sign-in-button"
+            onClick={() => navigate("/profile")}
+          >
             <BiUserCircle />
           </button>
         </div>
