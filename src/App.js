@@ -15,12 +15,14 @@ import WishlistPage from "./Pages/WishlistPage";
 import PrivateRoute from "./Components/PrivateRoute";
 import ProfilePage from "./Pages/ProfilePage";
 import UserAddressesPage from "./Pages/Address-Management/UserAddressesPage";
+import ProductListingPage from "./Pages/Product-Listing/ProductListingPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<RootLayout />}>
         <Route index element={<HomePage />} />
+        <Route path="products" element={<ProductListingPage />} />
         <Route
           path="cart"
           element={
