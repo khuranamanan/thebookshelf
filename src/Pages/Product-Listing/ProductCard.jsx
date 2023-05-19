@@ -1,5 +1,6 @@
 import calculateDiscount from "../../utils/calculateDiscount";
 import { AiFillHeart, AiFillStar } from "react-icons/ai";
+import { FaShoppingBag } from "react-icons/fa";
 
 function ProductCard({ product }) {
   const { img, title, author, price, originalPrice, isBestSeller, rating } =
@@ -35,11 +36,16 @@ function ProductCard({ product }) {
       <div className="product-actions">
         <button className="wishlist-button">
           <span className="heart-icon">
-            <AiFillHeart />
-          </span>{" "}
+            <AiFillHeart size={15} />
+          </span>
           Add to Wishlist
         </button>
-        <button className="cart-button">Add to Cart</button>
+        <button className="cart-button">
+          <span className="shopping-bag-icon">
+            <FaShoppingBag size={15} />
+          </span>
+          Add to Bag
+        </button>
       </div>
     </div>
   );
