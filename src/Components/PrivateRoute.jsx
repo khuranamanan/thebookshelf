@@ -5,7 +5,7 @@ import { Navigate, useLocation } from "react-router-dom";
 function PrivateRoute({ children }) {
   const { loginData } = useContext(AuthContext);
   const location = useLocation();
-  console.log("here", loginData.isLoggedIn);
+
   return loginData.isLoggedIn ? (
     children
   ) : (
