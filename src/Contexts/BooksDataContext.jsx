@@ -78,6 +78,7 @@ function BooksDataProvider({ children }) {
       value={{
         products: state.products,
         categories: state.categories,
+        filters: state.filters,
         booksDataDispatch,
         cheapestBookInCollection,
         expensiveBookInCollection,
