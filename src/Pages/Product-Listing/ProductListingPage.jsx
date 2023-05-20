@@ -3,9 +3,10 @@ import FilterBox from "./FilterBox";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import "./ProductListingPage.css";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
+import { FaFilter } from "react-icons/fa";
 
 function ProductListingPage() {
-  const [showModal, setShowModal] = useState(false);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
   const { products } = useContext(BooksDataContext);
 
   const productsMapped = products?.isLoading ? (
@@ -20,24 +21,22 @@ function ProductListingPage() {
 
   return (
     <div className="product-listing-page">
-      <div className="product-listing-filter-bar">
-        {showModal && (
-          <div className="filter-modal">
-            <FilterBox />
-            <button className="clear-filters">Clear All Filters</button>
-          </div>
-        )}
-        {!showModal && (
-          <button
-            className="show-modal-button"
-            onClick={() => setShowModal(true)}
-          >
-            Show Filters
-          </button>
-        )}
+      <div className="product-listing-heading">
+        <h1>Showing all Books</h1>
+        {"  "}
+        <p> {`(${products?.data.length} Books)`} </p>
       </div>
       <div className="product-listing-content">
-        <div className="filter-box">
+        <div className="mobile-filter-box">
+          <button
+            className="show-filter-btn"
+            onClick={() => setShowMobileFilters(!showMobileFilters)}
+          >
+            <FaFilter /> {showMobileFilters ? "Hide Filters" : "Show Filters"}
+          </button>
+          {showMobileFilters && <FilterBox />}
+        </div>
+        <div className="desktop-filter-box">
           <FilterBox />
         </div>
         <div className="product-list">{productsMapped}</div>

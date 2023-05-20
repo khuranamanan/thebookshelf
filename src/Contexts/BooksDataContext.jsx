@@ -58,6 +58,16 @@ function BooksDataProvider({ children }) {
     }
   }
 
+  const cheapestBookInCollection = state?.products?.data?.reduce(
+    (result, book) => (result > book.price ? book.price : result),
+    state?.products?.data[0]?.price
+  );
+
+  const expensiveBookInCollection = state?.products?.data?.reduce(
+    (result, book) => (result < book.price ? book.price : result),
+    0
+  );
+
   useEffect(() => {
     getProductsData();
     getCategoriesData();
@@ -69,6 +79,8 @@ function BooksDataProvider({ children }) {
         products: state.products,
         categories: state.categories,
         booksDataDispatch,
+        cheapestBookInCollection,
+        expensiveBookInCollection,
       }}
     >
       {children}
