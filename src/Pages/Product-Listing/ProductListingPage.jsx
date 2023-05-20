@@ -7,14 +7,14 @@ import { FaFilter } from "react-icons/fa";
 
 function ProductListingPage() {
   const [showMobileFilters, setShowMobileFilters] = useState(false);
-  const { products } = useContext(BooksDataContext);
+  const { products, displayData } = useContext(BooksDataContext);
 
   const productsMapped = products?.isLoading ? (
     <p>Loading...</p>
   ) : products?.isError ? (
     <p>{products.isError}</p>
   ) : (
-    products?.data?.map((product) => (
+    displayData.map((product) => (
       <ProductCard key={product._id} product={product} />
     ))
   );
@@ -24,7 +24,7 @@ function ProductListingPage() {
       <div className="product-listing-heading">
         <h1>Showing all Books</h1>
         {"  "}
-        <p> {`(${products?.data.length} Books)`} </p>
+        <p> {`(${displayData.length} Books)`} </p>
       </div>
       <div className="product-listing-content">
         <div className="mobile-filter-box">

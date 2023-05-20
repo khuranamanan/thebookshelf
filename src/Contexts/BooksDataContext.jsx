@@ -68,6 +68,73 @@ function BooksDataProvider({ children }) {
     0
   );
 
+  // Filter Logic
+  function filterData(data, filters) {
+    const filterByPriceRange =
+      filters.priceSlider !== expensiveBookInCollection
+        ? data.filter(
+            ({ price }) => Number(price) <= Number(filters.priceSlider)
+          )
+        : data;
+
+    const filterByCategories =
+      filters.selectedCategories.length !== 0
+        ? filterByPriceRange.filter(({ category }) =>
+            // filters.selectedCategories.some((filterCategory) =>
+            //   category.includes(filterCategory)
+            // )
+            category.some((checkCategory) =>
+              filters.selectedCategories.includes(checkCategory)
+            )
+          )
+        : filterByPriceRange;
+
+    const filterByRating =
+      filters.ratingFilter === "All"
+        ? filterByCategories
+        : filterByCategories.filter(
+            ({ rating }) => rating >= filters.ratingFilter
+          );
+
+    let sortedResult;
+
+    switch (filters.sortFilter) {
+      case "POPULARITY":
+        sortedResult = filterByRating;
+        break;
+
+      case "BESTSELLER_FIRST":
+        sortedResult = filterByRating.sort((a, b) => {
+          if (a.isBestSeller && !b.isBestSeller) {
+            return -1;
+          } else if (!a.isBestSeller && b.isBestSeller) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+        break;
+
+      case "LOW_TO_HIGH":
+        sortedResult = filterByRating.sort((a, b) => a.price - b.price);
+        break;
+
+      case "HIGH_TO_LOW":
+        sortedResult = filterByRating.sort((a, b) => b.price - a.price);
+        break;
+
+      default:
+        sortedResult = filterByRating;
+        break;
+    }
+
+    return sortedResult;
+  }
+
+  const displayData =
+    state?.products?.data &&
+    filterData([...state?.products?.data], state.filters);
+
   useEffect(() => {
     getProductsData();
     getCategoriesData();
@@ -79,6 +146,7 @@ function BooksDataProvider({ children }) {
         products: state.products,
         categories: state.categories,
         filters: state.filters,
+        displayData,
         booksDataDispatch,
         cheapestBookInCollection,
         expensiveBookInCollection,
