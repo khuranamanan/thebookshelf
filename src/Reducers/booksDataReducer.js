@@ -105,6 +105,19 @@ export function booksDataReducer(state, action) {
       };
     }
 
+    case ACTION_TYPES.CLEAR_ALL_FILTERS: {
+      return {
+        ...state,
+        filters: {
+          searchKey: "",
+          priceSlider: action.payload.rangeInitialValue,
+          selectedCategories: [],
+          ratingFilter: "All",
+          sortFilter: "POPULARITY",
+        },
+      };
+    }
+
     default:
       return state;
   }

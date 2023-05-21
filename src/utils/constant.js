@@ -10,4 +10,5 @@ export const ACTION_TYPES = {
   SELECTED_CATEGORIES_CHANGE: "selected-categories-change",
   RATING_FILTER_CHANGE: "rating-filter-change",
   SORT_FILTER_CHANGE: "sort-filter-change",
+  CLEAR_ALL_FILTERS: "clear-all-filters",
 };

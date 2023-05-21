@@ -180,7 +180,17 @@ function FilterBox() {
         </div>
 
         {/* Clear All Filters */}
-        <button className="clear-filters">Clear All Filters</button>
+        <button
+          className="clear-filters"
+          onClick={() =>
+            booksDataDispatch({
+              type: ACTION_TYPES.CLEAR_ALL_FILTERS,
+              payload: { rangeInitialValue: expensiveBookInCollection },
+            })
+          }
+        >
+          Clear All Filters
+        </button>
       </div>
     </div>
   );
