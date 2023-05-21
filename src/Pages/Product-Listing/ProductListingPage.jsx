@@ -21,18 +21,19 @@ function ProductListingPage() {
     setCurrentPage(pageNumber);
   }
 
-  const noBooksFoundDisplay = displayData?.length === 0 && (
-    <div className="no-books-found">
-      <h2>Oops! No books found that match your filters.</h2>
-      <p>
-        Try expanding genres, checking back later for updates, and exploring our
-        diverse collection. Don't give up, the perfect book is just waiting to
-        be discovered!
-      </p>
-      <img src={img404} alt="Happy-Reading" />
-      <p>Happy reading!</p>
-    </div>
-  );
+  const noBooksFoundDisplay = products?.data.length !== 0 &&
+    displayData?.length === 0 && (
+      <div className="no-books-found">
+        <h2>Oops! No books found that match your filters.</h2>
+        <p>
+          Try expanding genres, checking back later for updates, and exploring
+          our diverse collection. Don't give up, the perfect book is just
+          waiting to be discovered!
+        </p>
+        <img src={img404} alt="Happy-Reading" />
+        <p>Happy reading!</p>
+      </div>
+    );
 
   const productsMapped = products?.isLoading ? (
     <p>Loading...</p>
