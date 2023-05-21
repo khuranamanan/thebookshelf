@@ -4,6 +4,7 @@ export const initialState = {
   products: { isLoading: false, isError: null, data: [] },
   categories: { isLoading: false, isError: null, data: [] },
   filters: {
+    searchKey: "",
     priceSlider: 0,
     selectedCategories: [],
     ratingFilter: "All",
@@ -55,6 +56,13 @@ export function booksDataReducer(state, action) {
       return {
         ...state,
         filters: { ...state.filters, priceSlider: action.payload },
+      };
+    }
+
+    case ACTION_TYPES.SEARCH_KEY_CHANGE: {
+      return {
+        ...state,
+        filters: { ...state.filters, searchKey: action.payload },
       };
     }
 

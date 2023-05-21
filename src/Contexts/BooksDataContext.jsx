@@ -91,6 +91,8 @@ function BooksDataProvider({ children }) {
     })();
   }, [booksDataDispatch, expensiveBookInCollection]);
 
+  console.log(state.filters);
+
   return (
     <BooksDataContext.Provider
       value={{

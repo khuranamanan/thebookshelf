@@ -1,8 +1,17 @@
 function filterProducts(data, filters, mostExpensiveProduct) {
+  const filterBySearch = filters.searchKey
+    ? data.filter(
+        ({ title }) =>
+          title.toLowerCase().indexOf(filters.searchKey.toLowerCase()) !== -1
+      )
+    : data;
+
   const filterByPriceRange =
     filters.priceSlider !== mostExpensiveProduct
-      ? data.filter(({ price }) => Number(price) <= Number(filters.priceSlider))
-      : data;
+      ? filterBySearch.filter(
+          ({ price }) => Number(price) <= Number(filters.priceSlider)
+        )
+      : filterBySearch;
 
   const filterByCategories =
     filters.selectedCategories.length !== 0
