@@ -1,8 +1,8 @@
 import calculateDiscount from "../../utils/calculateDiscount";
-import { AiFillHeart, AiFillStar } from "react-icons/ai";
-import { FaShoppingBag } from "react-icons/fa";
+import { AiFillStar } from "react-icons/ai";
 import "./ProductCard.css";
 import { useNavigate } from "react-router";
+import ProductActions from "./ProductActions";
 
 function ProductCard({ product }) {
   const {
@@ -37,7 +37,7 @@ function ProductCard({ product }) {
           {originalPrice && (
             <>
               <span className="original-price">Rs. {originalPrice}</span>
-              <span className="discont-given">
+              <span className="discount-given">
                 {calculateDiscount(originalPrice, price)}% off
               </span>
             </>
@@ -50,20 +50,7 @@ function ProductCard({ product }) {
           </span>
         </div>
       </div>
-      <div className="product-actions">
-        <button className="wishlist-button">
-          <span className="heart-icon">
-            <AiFillHeart size={15} />
-          </span>
-          Add to Wishlist
-        </button>
-        <button className="cart-button">
-          <span className="shopping-bag-icon">
-            <FaShoppingBag size={15} />
-          </span>
-          Add to Bag
-        </button>
-      </div>
+      <ProductActions />
     </div>
   );
 }
