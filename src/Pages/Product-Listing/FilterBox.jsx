@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import { ACTION_TYPES } from "../../utils/constant";
 
@@ -42,13 +42,6 @@ function FilterBox() {
       payload: event.target.value,
     });
   }
-
-  useEffect(() => {
-    booksDataDispatch({
-      type: ACTION_TYPES.INITIALIZE_RANGE_FILTER,
-      payload: expensiveBookInCollection,
-    });
-  }, [booksDataDispatch, expensiveBookInCollection]);
 
   return (
     <div className="filter-box">
