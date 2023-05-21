@@ -131,6 +131,12 @@
   font-size: 1rem;
 }
 
+.product-details-card-unavailable-message {
+  color: var(--color-10);
+  font-size: 0.8rem;
+  margin: 5px 0;
+}
+
 @media only screen and (max-width: 600px) {
   .product-details-card-content {
     grid-template-columns: 1fr;

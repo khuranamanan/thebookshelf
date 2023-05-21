@@ -7,6 +7,12 @@ import { AiOutlineArrowLeft, AiFillStar } from "react-icons/ai";
 function ProductDetailsCard({ book }) {
   const navigate = useNavigate();
 
+  const outOfStockMessage = !book?.stockQty && (
+    <p className="product-details-card-unavailable-message">
+      Currently Unavailable
+    </p>
+  );
+
   return (
     <div className="product-details-card">
       <button className="go-back-btn flex-center" onClick={() => navigate(-1)}>
@@ -47,9 +53,10 @@ function ProductDetailsCard({ book }) {
           </p>
           <p className="book-pages">Pages: {book?.pages}</p>
           <p className="release-date">Release Date: {book?.releaseDate}</p>
+          {outOfStockMessage}
         </div>
         <div className="book-actions">
-          <ProductActions />
+          <ProductActions stockQty={book?.stockQty} />
         </div>
         <div className="book-about-details">
           <div className="about-book-box">

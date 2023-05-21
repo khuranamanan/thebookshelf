@@ -14,8 +14,13 @@ function ProductCard({ product }) {
     originalPrice,
     isBestSeller,
     rating,
+    stockQty,
   } = product;
   const navigate = useNavigate();
+
+  const outOfStockMessage = !stockQty && (
+    <p className="product-card-unavailable-message">Currently Unavailable</p>
+  );
 
   return (
     <div className="product-card">
@@ -49,8 +54,9 @@ function ProductCard({ product }) {
             <AiFillStar />
           </span>
         </div>
+        {outOfStockMessage}
       </div>
-      <ProductActions />
+      <ProductActions stockQty={stockQty} />
     </div>
   );
 }

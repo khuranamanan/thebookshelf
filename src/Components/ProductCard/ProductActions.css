@@ -41,6 +41,15 @@
   background-color: var(--color-4);
 }
 
+.cart-button:disabled {
+  background-color: var(--color-11);
+  cursor: default;
+}
+
+.cart-button:disabled:hover {
+  background-color: var(--color-11);
+}
+
 @media screen and (max-width: 767px) {
   .product-actions {
     flex-direction: column;
