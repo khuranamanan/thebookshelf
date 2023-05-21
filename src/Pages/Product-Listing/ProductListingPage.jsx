@@ -5,6 +5,7 @@ import "./ProductListingPage.css";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import { FaFilter } from "react-icons/fa";
 import Pagination from "../../Components/Pagination/Pagination";
+import img404 from "../../assets/404.jpg";
 
 function ProductListingPage() {
   const [showMobileFilters, setShowMobileFilters] = useState(false);
@@ -19,6 +20,19 @@ function ProductListingPage() {
   function paginate(pageNumber) {
     setCurrentPage(pageNumber);
   }
+
+  const noBooksFoundDisplay = displayData?.length === 0 && (
+    <div className="no-books-found">
+      <h2>Oops! No books found that match your filters.</h2>
+      <p>
+        Try expanding genres, checking back later for updates, and exploring our
+        diverse collection. Don't give up, the perfect book is just waiting to
+        be discovered!
+      </p>
+      <img src={img404} alt="Happy-Reading" />
+      <p>Happy reading!</p>
+    </div>
+  );
 
   const productsMapped = products?.isLoading ? (
     <p>Loading...</p>
@@ -50,7 +64,9 @@ function ProductListingPage() {
         <div className="desktop-filter-box">
           <FilterBox />
         </div>
-        <div className="product-list">{productsMapped}</div>
+        <div className="product-list">
+          {productsMapped} {noBooksFoundDisplay}
+        </div>
       </div>
       <Pagination
         booksPerPage={booksPerPage}

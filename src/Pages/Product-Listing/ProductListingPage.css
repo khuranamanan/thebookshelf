@@ -155,6 +155,32 @@
   display: none;
 }
 
+.no-books-found {
+  text-align: center;
+  padding: 20px;
+}
+
+.no-books-found h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.no-books-found p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.no-books-found img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.no-books-found p:last-child {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
 /* Adjustments for mobile devices */
 
 @media screen and (max-width: 767px) {
