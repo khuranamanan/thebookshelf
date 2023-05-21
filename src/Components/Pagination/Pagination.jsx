@@ -16,7 +16,10 @@ function Pagination({ booksPerPage, totalBooks, paginate }) {
   };
 
   return (
-    <div className="pagination-container">
+    <div className="pagination-container flex-center">
+      <p className="current-page-label">{`Page ${activePage} of ${
+        pageNumbers[pageNumbers.length - 1]
+      }`}</p>
       <ul className="pagination">
         {pageNumbers.map((number) => (
           <li
