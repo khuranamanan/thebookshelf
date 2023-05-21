@@ -16,13 +16,17 @@ import PrivateRoute from "./Components/PrivateRoute";
 import ProfilePage from "./Pages/ProfilePage";
 import UserAddressesPage from "./Pages/Address-Management/UserAddressesPage";
 import ProductListingPage from "./Pages/Product-Listing/ProductListingPage";
+import ProductDetailsPage from "./Pages/ProductDetails/ProductDetailsPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<RootLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="products" element={<ProductListingPage />} />
+        <Route path="products">
+          <Route index element={<ProductListingPage />} />
+          <Route path=":id" element={<ProductDetailsPage />} />
+        </Route>
         <Route
           path="cart"
           element={

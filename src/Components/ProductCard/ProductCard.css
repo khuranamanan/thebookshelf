@@ -9,6 +9,7 @@
 }
 
 .product-image {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   aspect-ratio: 2/3;

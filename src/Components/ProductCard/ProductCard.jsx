@@ -2,18 +2,34 @@ import calculateDiscount from "../../utils/calculateDiscount";
 import { AiFillHeart, AiFillStar } from "react-icons/ai";
 import { FaShoppingBag } from "react-icons/fa";
 import "./ProductCard.css";
+import { useNavigate } from "react-router";
 
 function ProductCard({ product }) {
-  const { img, title, author, price, originalPrice, isBestSeller, rating } =
-    product;
+  const {
+    _id,
+    img,
+    title,
+    author,
+    price,
+    originalPrice,
+    isBestSeller,
+    rating,
+  } = product;
+  const navigate = useNavigate();
 
   return (
     <div className="product-card">
-      <div className="product-image">
+      <div
+        className="product-image"
+        onClick={() => navigate(`/products/${_id}`)}
+      >
         <img src={img} alt={title} />
         {isBestSeller && <span className="best-seller">Bestseller</span>}
       </div>
-      <div className="product-details">
+      <div
+        className="product-details"
+        onClick={() => navigate(`/products/${_id}`)}
+      >
         <h3 className="product-title">{title}</h3>
         <p className="product-author">{author}</p>
         <div className="price-container">
