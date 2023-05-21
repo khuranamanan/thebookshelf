@@ -12,30 +12,30 @@ function NavLinks({ isMobileNavLinks = false, mobileNavLinkClickHandler }) {
       <NavLink
         className="navbar-link"
         to="/"
-        onClick={mobileNavLinkClickHandler}
+        onClick={isMobileNavLinks && mobileNavLinkClickHandler}
       >
         Home
       </NavLink>
       <NavLink
         className="navbar-link"
+        to="/products"
+        onClick={isMobileNavLinks && mobileNavLinkClickHandler}
+      >
+        Explore
+      </NavLink>
+      <NavLink
+        className="navbar-link"
         to="/categories"
-        onClick={mobileNavLinkClickHandler}
+        onClick={isMobileNavLinks && mobileNavLinkClickHandler}
       >
         Categories
       </NavLink>
       <NavLink
         className="navbar-link"
         to="/wishlist"
-        onClick={mobileNavLinkClickHandler}
+        onClick={isMobileNavLinks && mobileNavLinkClickHandler}
       >
         Wishlist
-      </NavLink>
-      <NavLink
-        className="navbar-link"
-        to="/aboutus"
-        onClick={mobileNavLinkClickHandler}
-      >
-        About Us
       </NavLink>
     </div>
   );
