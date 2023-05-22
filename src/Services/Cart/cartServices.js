@@ -1,7 +1,13 @@
 import axios from "axios";
 import { ACTION_TYPES } from "../../utils/constant";
 
-export async function addToCart(booksDataDispatch, token, product) {
+export async function addToCart(
+  booksDataDispatch,
+  token,
+  product,
+  setBtnDisabled
+) {
+  setBtnDisabled(() => setBtnDisabled(true));
   try {
     const response = await axios.post(
       "api/user/cart",
@@ -15,6 +21,7 @@ export async function addToCart(booksDataDispatch, token, product) {
   } catch (err) {
     console.log("Error From Add to Cart:", err.message);
   }
+  setBtnDisabled(() => setBtnDisabled(false));
 }
 
 export async function removeFromCart(booksDataDispatch, id, token) {

@@ -1,7 +1,7 @@
 import { AiFillHeart } from "react-icons/ai";
 import { FaShoppingBag } from "react-icons/fa";
 import "./ProductActions.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import { useNavigate } from "react-router";
@@ -11,6 +11,7 @@ import { addToCart } from "../../Services/Cart/cartServices";
 function ProductActions({ productID, stockQty, book }) {
   const { loginData } = useContext(AuthContext);
   const { cart, booksDataDispatch } = useContext(BooksDataContext);
+  const [btnDisabled, setBtnDisabled] = useState(false);
   const navigate = useNavigate();
 
   const isInCart = isProductInCart(cart, productID);
@@ -20,7 +21,7 @@ function ProductActions({ productID, stockQty, book }) {
       if (isInCart) {
         navigate("/cart");
       } else {
-        addToCart(booksDataDispatch, loginData.token, book);
+        addToCart(booksDataDispatch, loginData.token, book, setBtnDisabled);
       }
     } else {
       navigate("/login");
@@ -37,7 +38,7 @@ function ProductActions({ productID, stockQty, book }) {
       </button>
       <button
         className={`cart-button ${isInCart && "go-to-cart-button"}`}
-        disabled={stockQty === 0}
+        disabled={stockQty === 0 || btnDisabled}
         onClick={handleAddToCartBtnClick}
       >
         <span className="shopping-bag-icon">
