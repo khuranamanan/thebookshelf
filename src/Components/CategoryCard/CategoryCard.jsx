@@ -5,7 +5,8 @@ import { ACTION_TYPES } from "../../utils/constant";
 import { useNavigate } from "react-router";
 
 function CategoryCard({ image, categoryName, description }) {
-  const { booksDataDispatch } = useContext(BooksDataContext);
+  const { booksDataDispatch, expensiveBookInCollection } =
+    useContext(BooksDataContext);
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
@@ -20,7 +21,10 @@ function CategoryCard({ image, categoryName, description }) {
   function handleCategoryCardClick(selectedCategory) {
     booksDataDispatch({
       type: ACTION_TYPES.SELECTED_CATEGORY_CARD,
-      payload: selectedCategory,
+      payload: {
+        category: selectedCategory,
+        priceSlider: expensiveBookInCollection,
+      },
     });
     navigate("/products");
   }
