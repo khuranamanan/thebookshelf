@@ -91,7 +91,7 @@ function BooksDataProvider({ children }) {
     })();
   }, [booksDataDispatch, expensiveBookInCollection]);
 
-  console.log(state.filters);
+  console.log(state.cart);
 
   return (
     <BooksDataContext.Provider
@@ -99,6 +99,7 @@ function BooksDataProvider({ children }) {
         products: state.products,
         categories: state.categories,
         filters: state.filters,
+        cart: state.cart,
         displayData,
         booksDataDispatch,
         cheapestBookInCollection,

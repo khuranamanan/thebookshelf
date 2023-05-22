@@ -56,7 +56,11 @@ function ProductDetailsCard({ book }) {
           {outOfStockMessage}
         </div>
         <div className="book-actions">
-          <ProductActions stockQty={book?.stockQty} />
+          <ProductActions
+            productID={book?._id}
+            stockQty={book?.stockQty}
+            book={book}
+          />
         </div>
         <div className="book-about-details">
           <div className="about-book-box">
