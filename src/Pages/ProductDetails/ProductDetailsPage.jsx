@@ -14,11 +14,12 @@ function ProductDetailsPage() {
   const displayCard = currentBook ? (
     <ProductDetailsCard book={currentBook} />
   ) : (
-    <div className="something-went-wrong flex-center flex-dir-co">
-      <h2>Something Went Wrong</h2>
+    <div className="book-not-found flex-center flex-dir-co">
+      <h2>Could Not Find the Book You're Looking For</h2>
       <p>
-        We apologize for the inconvenience. An unexpected error has occurred.
-        Please try again later.
+        We apologize for the inconvenience. The book you are searching for could
+        not be found. Please try again later or explore our other available
+        books.
       </p>
       <button onClick={() => navigate("/products")} className="btn-secondary">
         Go to Product Page
