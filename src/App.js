@@ -17,6 +17,7 @@ import ProfilePage from "./Pages/ProfilePage";
 import UserAddressesPage from "./Pages/Address-Management/UserAddressesPage";
 import ProductListingPage from "./Pages/Product-Listing/ProductListingPage";
 import ProductDetailsPage from "./Pages/ProductDetails/ProductDetailsPage";
+import CategoriesPage from "./Pages/Categories/CategoriesPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
           <Route index element={<ProductListingPage />} />
           <Route path=":id" element={<ProductDetailsPage />} />
         </Route>
+        <Route path="categories" element={<CategoriesPage />} />
         <Route
           path="cart"
           element={
