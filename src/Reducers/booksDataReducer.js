@@ -133,7 +133,6 @@ export function booksDataReducer(state, action) {
     }
 
     case ACTION_TYPES.ADD_TO_CART: {
-      console.log("payload:", action.payload);
       return { ...state, cart: [...action.payload] };
     }
 

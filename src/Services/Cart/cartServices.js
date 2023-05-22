@@ -44,7 +44,7 @@ export async function updateQtyInCart(
       `/api/user/cart/${id}`,
       {
         action: {
-          type: actionType === "INCREMENT" ? "increment" : "decrement",
+          type: actionType,
         },
       },
       {
