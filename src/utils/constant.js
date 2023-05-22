@@ -11,4 +11,5 @@ export const ACTION_TYPES = {
   RATING_FILTER_CHANGE: "rating-filter-change",
   SORT_FILTER_CHANGE: "sort-filter-change",
   CLEAR_ALL_FILTERS: "clear-all-filters",
+  SELECTED_CATEGORY_CARD: "selected-category-card",
 };
