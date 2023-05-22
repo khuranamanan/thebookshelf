@@ -1,0 +1,134 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-3);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 5px;
+  width: 14rem;
+  max-height: 35rem;
+}
+
+.product-image {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  aspect-ratio: 2/3;
+  height: 12.5rem;
+  position: relative;
+}
+
+.product-image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.best-seller {
+  font-size: 0.9rem;
+  position: absolute;
+  top: 10px;
+  left: -2px;
+  background-color: var(--color-5);
+  color: var(--color-3);
+  padding: 3px;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+}
+
+.product-details {
+  width: 100%;
+  padding: 10px;
+  flex: 1;
+  margin: auto;
+  cursor: pointer;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.product-author {
+  font-size: 0.9rem;
+  color: var(--color-11);
+  margin-bottom: 0.5rem;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.original-price {
+  font-size: 0.9rem;
+  text-decoration: line-through;
+  color: var(--color-11);
+  margin-right: 0.5rem;
+}
+
+.current-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color-6);
+  margin-right: 0.5rem;
+}
+
+.discount-given {
+  color: var(--color-12);
+  display: inline-block;
+  padding: 3px;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  background-color: var(--color-12);
+  display: inline-block;
+  padding: 3px;
+  color: var(--color-3);
+  border-radius: 5px;
+}
+
+.rating {
+  margin-right: 0.25rem;
+}
+
+.star {
+  color: var(--color-3);
+}
+
+.product-card-unavailable-message {
+  color: var(--color-10);
+  font-size: 0.8rem;
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .product-card {
+    flex-direction: column;
+    width: 15rem;
+    /* margin: auto; */
+  }
+
+  .product-image {
+    height: 15rem;
+  }
+
+  .product-image img {
+    height: 100%;
+  }
+
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .product-rating {
+    width: fit-content;
+  }
+}

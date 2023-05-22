@@ -2,6 +2,7 @@ import { createContext, useEffect, useReducer } from "react";
 import { booksDataReducer, initialState } from "../Reducers/booksDataReducer";
 import axios from "axios";
 import { ACTION_TYPES } from "../utils/constant";
+import filterProducts from "../utils/filterProducts";
 
 export const BooksDataContext = createContext();
 
@@ -58,17 +59,50 @@ function BooksDataProvider({ children }) {
     }
   }
 
+  const cheapestBookInCollection = state?.products?.data?.reduce(
+    (result, book) => (result > book.price ? book.price : result),
+    state?.products?.data[0]?.price
+  );
+
+  const expensiveBookInCollection = state?.products?.data?.reduce(
+    (result, book) => (result < book.price ? book.price : result),
+    0
+  );
+
+  const displayData =
+    state?.products?.data &&
+    filterProducts(
+      [...state?.products?.data],
+      state.filters,
+      expensiveBookInCollection
+    );
+
   useEffect(() => {
     getProductsData();
     getCategoriesData();
   }, []);
+
+  useEffect(() => {
+    (function () {
+      booksDataDispatch({
+        type: ACTION_TYPES.INITIALIZE_RANGE_FILTER,
+        payload: expensiveBookInCollection,
+      });
+    })();
+  }, [booksDataDispatch, expensiveBookInCollection]);
+
+  console.log(state.filters);
 
   return (
     <BooksDataContext.Provider
       value={{
         products: state.products,
         categories: state.categories,
+        filters: state.filters,
+        displayData,
         booksDataDispatch,
+        cheapestBookInCollection,
+        expensiveBookInCollection,
       }}
     >
       {children}

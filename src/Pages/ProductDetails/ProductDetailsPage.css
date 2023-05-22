@@ -1,0 +1,14 @@
+.product-details-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  max-width: 1200px;
+  margin: 10px auto;
+}
+
+.book-not-found {
+  gap: 1rem;
+  margin: 5px;
+  padding: 5px;
+}

@@ -3,6 +3,13 @@ import { ACTION_TYPES } from "../utils/constant";
 export const initialState = {
   products: { isLoading: false, isError: null, data: [] },
   categories: { isLoading: false, isError: null, data: [] },
+  filters: {
+    searchKey: "",
+    priceSlider: 0,
+    selectedCategories: [],
+    ratingFilter: "All",
+    sortFilter: "POPULARITY",
+  },
 };
 
 export function booksDataReducer(state, action) {
@@ -41,6 +48,72 @@ export function booksDataReducer(state, action) {
         [propertyToTarget]: {
           ...state[propertyToTarget],
           isError: action.payload.value,
+        },
+      };
+    }
+
+    case ACTION_TYPES.INITIALIZE_RANGE_FILTER: {
+      return {
+        ...state,
+        filters: { ...state.filters, priceSlider: action.payload },
+      };
+    }
+
+    case ACTION_TYPES.SEARCH_KEY_CHANGE: {
+      return {
+        ...state,
+        filters: { ...state.filters, searchKey: action.payload },
+      };
+    }
+
+    case ACTION_TYPES.RANGE_FILTER_CHANGE: {
+      return {
+        ...state,
+        filters: { ...state.filters, priceSlider: action.payload },
+      };
+    }
+
+    case ACTION_TYPES.SELECTED_CATEGORIES_CHANGE: {
+      const newSelectedCategories = state.filters.selectedCategories.includes(
+        action.payload
+      )
+        ? state.filters.selectedCategories.filter(
+            (category) => category !== action.payload
+          )
+        : [...state.filters.selectedCategories, action.payload];
+
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          selectedCategories: newSelectedCategories,
+        },
+      };
+    }
+
+    case ACTION_TYPES.RATING_FILTER_CHANGE: {
+      return {
+        ...state,
+        filters: { ...state.filters, ratingFilter: action.payload },
+      };
+    }
+
+    case ACTION_TYPES.SORT_FILTER_CHANGE: {
+      return {
+        ...state,
+        filters: { ...state.filters, sortFilter: action.payload },
+      };
+    }
+
+    case ACTION_TYPES.CLEAR_ALL_FILTERS: {
+      return {
+        ...state,
+        filters: {
+          searchKey: "",
+          priceSlider: action.payload.rangeInitialValue,
+          selectedCategories: [],
+          ratingFilter: "All",
+          sortFilter: "POPULARITY",
         },
       };
     }

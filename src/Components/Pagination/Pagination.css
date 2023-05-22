@@ -1,0 +1,44 @@
+.pagination-container {
+  flex-wrap: wrap;
+  margin: 1rem 0 2rem 0;
+}
+
+.current-page-label {
+  margin: 15px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-item {
+  margin: 0 0.25rem;
+}
+
+.page-link {
+  font-size: 1.2rem;
+  aspect-ratio: 1/1;
+  width: 2.5rem;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  border: 1px solid var(--color-2);
+  color: var(--color-6);
+  background-color: var(--color-3);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.page-link:hover {
+  background-color: var(--color-5);
+}
+
+.page-item.active .page-link {
+  background-color: var(--color-6);
+  color: var(--color-3);
+  border-color: var(--color-2);
+}
