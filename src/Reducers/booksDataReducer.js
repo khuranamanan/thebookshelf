@@ -118,6 +118,13 @@ export function booksDataReducer(state, action) {
       };
     }
 
+    case ACTION_TYPES.SELECTED_CATEGORY_CARD: {
+      return {
+        ...state,
+        filters: { ...state.filters, selectedCategories: [action.payload] },
+      };
+    }
+
     default:
       return state;
   }

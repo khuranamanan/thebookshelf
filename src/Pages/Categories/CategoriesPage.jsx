@@ -12,7 +12,7 @@ function CategoriesPage() {
       <CategoryCard
         key={category._id}
         image={category.img}
-        heading={category.categoryName}
+        categoryName={category.categoryName}
         description={category.description}
       />
     ));
