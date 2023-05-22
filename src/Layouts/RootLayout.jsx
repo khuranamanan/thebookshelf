@@ -3,7 +3,6 @@ import { Outlet } from "react-router";
 //Components
 import NavigationBar from "../Components/NavigationBar/NavigationBar";
 import Footer from "../Components/Footer";
-import { ScrollRestoration } from "react-router-dom";
 
 function RootLayout() {
   return (
@@ -11,7 +10,7 @@ function RootLayout() {
       <header>
         <NavigationBar />
       </header>
-      <ScrollRestoration />
+
       <main>
         <Outlet />
       </main>
