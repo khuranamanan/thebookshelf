@@ -17,7 +17,6 @@ function CartCard({ data }) {
   }
 
   function handleDecreaseQtyBtn(quantity, productID, action) {
-    console.log("here:::", quantity, productID, action);
     if (quantity === 1) {
       removeFromCart(booksDataDispatch, productID, loginData.token);
     } else {

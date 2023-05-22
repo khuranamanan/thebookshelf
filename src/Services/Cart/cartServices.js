@@ -7,10 +7,9 @@ export async function addToCart(
   product,
   setBtnDisabled
 ) {
-  setBtnDisabled(() => setBtnDisabled(true));
   try {
     const response = await axios.post(
-      "api/user/cart",
+      "/api/user/cart",
       { product },
       { headers: { authorization: token } }
     );
@@ -20,13 +19,14 @@ export async function addToCart(
     });
   } catch (err) {
     console.log("Error From Add to Cart:", err.message);
+  } finally {
+    setBtnDisabled(() => setBtnDisabled(false));
   }
-  setBtnDisabled(() => setBtnDisabled(false));
 }
 
 export async function removeFromCart(booksDataDispatch, id, token) {
   try {
-    const response = await axios.delete(`api/user/cart/${id}`, {
+    const response = await axios.delete(`/api/user/cart/${id}`, {
       headers: {
         authorization: token,
       },

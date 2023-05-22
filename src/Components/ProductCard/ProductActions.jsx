@@ -17,6 +17,7 @@ function ProductActions({ productID, stockQty, book }) {
   const isInCart = isProductInCart(cart, productID);
 
   function handleAddToCartBtnClick() {
+    setBtnDisabled(true);
     if (loginData.isLoggedIn) {
       if (isInCart) {
         navigate("/cart");
