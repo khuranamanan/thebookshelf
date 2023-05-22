@@ -121,7 +121,13 @@ export function booksDataReducer(state, action) {
     case ACTION_TYPES.SELECTED_CATEGORY_CARD: {
       return {
         ...state,
-        filters: { ...state.filters, selectedCategories: [action.payload] },
+        filters: {
+          searchKey: "",
+          priceSlider: action.payload.priceSlider,
+          selectedCategories: [action.payload.category],
+          ratingFilter: "All",
+          sortFilter: "POPULARITY",
+        },
       };
     }
 
