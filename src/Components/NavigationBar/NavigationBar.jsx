@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 //Components
 import NavSearchBox from "./NavSearchBox";
 import NavLinks from "./NavLinks";
@@ -11,8 +11,6 @@ import "./NavigationBar.css";
 import MobileNavLinks from "./MobileNavLinks";
 
 function NavigationBar() {
-  const navigate = useNavigate();
-
   return (
     <nav className="navbar flex-center">
       <MobileNavLinks />
