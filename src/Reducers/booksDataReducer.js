@@ -153,6 +153,14 @@ export function booksDataReducer(state, action) {
       return { ...state, wishlist: [...action.payload] };
     }
 
+    case ACTION_TYPES.CLEAR_CART: {
+      return { ...state, cart: [] };
+    }
+
+    case ACTION_TYPES.CLEAR_WISHLIST: {
+      return { ...state, wishlist: [] };
+    }
+
     default:
       return state;
   }
