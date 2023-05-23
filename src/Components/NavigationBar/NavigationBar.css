@@ -94,6 +94,11 @@
   cursor: pointer;
 }
 
+.shopping-bag-button.active,
+.sign-in-button.active {
+  color: var(--color-5);
+}
+
 .hamburger-icons {
   /* padding: 10px; */
   margin-left: 10px;

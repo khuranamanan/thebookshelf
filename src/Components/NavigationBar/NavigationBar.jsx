@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 //Components
 import NavSearchBox from "./NavSearchBox";
 import NavLinks from "./NavLinks";
@@ -27,18 +27,12 @@ function NavigationBar() {
           <NavSearchBox />
         </span>
         <div className="navbar-addons-btns flex-center">
-          <button
-            className="shopping-bag-button"
-            onClick={() => navigate("/cart")}
-          >
+          <NavLink className="shopping-bag-button" to={"/cart"}>
             <FiShoppingBag />
-          </button>
-          <button
-            className="sign-in-button"
-            onClick={() => navigate("/profile")}
-          >
+          </NavLink>
+          <NavLink className="sign-in-button" to={"/profile"}>
             <BiUserCircle />
-          </button>
+          </NavLink>
         </div>
       </div>
     </nav>
