@@ -7,39 +7,80 @@ import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import { useNavigate } from "react-router";
 import isProductInCart from "../../utils/Cart/isProductInCart";
 import { addToCart } from "../../utils/Cart/cart";
+import { isProductInWishlist } from "../../utils/Wishlist/isProductInWishlist";
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../../utils/Wishlist/wishlist";
 
-function ProductActions({ productID, stockQty, book }) {
+function ProductActions({ productID, stockQty, book, isWishlistPage }) {
   const { loginData } = useContext(AuthContext);
-  const { cart, booksDataDispatch } = useContext(BooksDataContext);
-  const [btnDisabled, setBtnDisabled] = useState(false);
+  const { cart, wishlist, booksDataDispatch } = useContext(BooksDataContext);
+  const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
+  const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
   const navigate = useNavigate();
 
   const isInCart = isProductInCart(cart, productID);
+  const isInWishList = isProductInWishlist(wishlist, productID);
 
-  function handleAddToCartBtnClick() {
-    setBtnDisabled(true);
+  function handleAddToWishlistBtnClick() {
+    setWishlistBtnDisabled(true);
     if (loginData.isLoggedIn) {
-      if (isInCart) {
-        navigate("/cart");
+      if (isWishlistPage && isInWishList) {
+        removeFromWishlist(booksDataDispatch, productID, loginData.token);
+      } else if (isInWishList) {
+        setWishlistBtnDisabled(false);
+        navigate("/wishlist");
       } else {
-        addToCart(booksDataDispatch, loginData.token, book, setBtnDisabled);
+        addToWishlist(
+          booksDataDispatch,
+          book,
+          loginData.token,
+          setWishlistBtnDisabled
+        );
       }
     } else {
+      setWishlistBtnDisabled(false);
+      navigate("/login");
+    }
+  }
+
+  function handleAddToCartBtnClick() {
+    setCartBtnDisabled(true);
+    if (loginData.isLoggedIn) {
+      if (isInCart) {
+        setCartBtnDisabled(false);
+        navigate("/cart");
+      } else {
+        addToCart(booksDataDispatch, loginData.token, book, setCartBtnDisabled);
+      }
+    } else {
+      setCartBtnDisabled(false);
       navigate("/login");
     }
   }
 
   return (
     <div className="product-actions">
-      <button className="wishlist-button">
+      <button
+        className={`wishlist-button ${
+          isInWishList && "go-to-wishlist-button"
+        } ${isWishlistPage && "remove-from-wishlist-button"}`}
+        onClick={handleAddToWishlistBtnClick}
+        disabled={wishlistBtnDisabled}
+      >
         <span className="heart-icon">
           <AiFillHeart size={15} />
         </span>
-        Add to Wishlist
+        {isWishlistPage
+          ? "Remove From Wishlist"
+          : isInWishList
+          ? "Go to Wishlist"
+          : "Add to Wishlist"}
       </button>
       <button
         className={`cart-button ${isInCart && "go-to-cart-button"}`}
-        disabled={stockQty === 0 || btnDisabled}
+        disabled={stockQty === 0 || cartBtnDisabled}
         onClick={handleAddToCartBtnClick}
       >
         <span className="shopping-bag-icon">

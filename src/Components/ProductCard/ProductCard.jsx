@@ -4,7 +4,7 @@ import "./ProductCard.css";
 import { useNavigate } from "react-router";
 import ProductActions from "./ProductActions";
 
-function ProductCard({ product }) {
+function ProductCard({ product, isWishlistPage = false }) {
   const {
     _id,
     img,
@@ -56,7 +56,12 @@ function ProductCard({ product }) {
         </div>
         {outOfStockMessage}
       </div>
-      <ProductActions productID={_id} stockQty={stockQty} book={product} />
+      <ProductActions
+        productID={_id}
+        stockQty={stockQty}
+        book={product}
+        isWishlistPage={isWishlistPage}
+      />
     </div>
   );
 }

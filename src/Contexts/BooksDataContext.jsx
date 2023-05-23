@@ -98,6 +98,7 @@ function BooksDataProvider({ children }) {
         categories: state.categories,
         filters: state.filters,
         cart: state.cart,
+        wishlist: state.wishlist,
         displayData,
         booksDataDispatch,
         cheapestBookInCollection,
