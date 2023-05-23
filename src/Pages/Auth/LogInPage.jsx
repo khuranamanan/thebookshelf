@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./LogInPage.css";
-import logInImg from "../assets/LogInPageImg.jpg";
-import logo from "../assets/Colorlogo.png";
-import { AuthContext } from "../Contexts/AuthContext";
+import logInImg from "../../assets/LogInPageImg.jpg";
+import logo from "../../assets/Colorlogo.png";
+import { AuthContext } from "../../Contexts/AuthContext";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function LogInPage() {

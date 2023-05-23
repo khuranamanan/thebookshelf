@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AiOutlineUser } from "react-icons/ai";
-import { AuthContext } from "../Contexts/AuthContext";
+import { AuthContext } from "../../Contexts/AuthContext";
 import "./ProfilePage.css";
 import { useNavigate } from "react-router-dom";
 

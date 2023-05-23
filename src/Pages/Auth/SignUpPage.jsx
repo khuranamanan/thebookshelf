@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./SignUpPage.css";
-import signUpImg from "../assets/SignUpPageImg.jpg";
-import logo from "../assets/Colorlogo.png";
-import { AuthContext } from "../Contexts/AuthContext";
+import signUpImg from "../../assets/SignUpPageImg.jpg";
+import logo from "../../assets/Colorlogo.png";
+import { AuthContext } from "../../Contexts/AuthContext";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function SignUpPage() {

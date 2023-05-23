@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 //Components
 import NavigationBar from "../Components/NavigationBar/NavigationBar";
-import Footer from "../Components/Footer";
+import Footer from "../Components/Footer/Footer";
 
 function RootLayout() {
   const location = useLocation();
