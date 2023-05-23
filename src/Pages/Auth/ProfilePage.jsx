@@ -4,14 +4,12 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import "./ProfilePage.css";
 import { useNavigate } from "react-router-dom";
 import { ACTION_TYPES } from "../../utils/constant";
+import { BooksDataContext } from "../../Contexts/BooksDataContext";
 
 function ProfilePage() {
-  const {
-    loginData,
-    signOutUser,
-    booksDataDispatch,
-    expensiveBookInCollection,
-  } = useContext(AuthContext);
+  const { loginData, signOutUser } = useContext(AuthContext);
+  const { booksDataDispatch, expensiveBookInCollection } =
+    useContext(BooksDataContext);
   const { user } = loginData;
   const navigate = useNavigate();
 
