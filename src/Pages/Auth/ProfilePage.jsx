@@ -3,13 +3,23 @@ import { AiOutlineUser } from "react-icons/ai";
 import { AuthContext } from "../../Contexts/AuthContext";
 import "./ProfilePage.css";
 import { useNavigate } from "react-router-dom";
+import { ACTION_TYPES } from "../../utils/constant";
+import { BooksDataContext } from "../../Contexts/BooksDataContext";
 
 function ProfilePage() {
   const { loginData, signOutUser } = useContext(AuthContext);
+  const { booksDataDispatch, expensiveBookInCollection } =
+    useContext(BooksDataContext);
   const { user } = loginData;
   const navigate = useNavigate();
 
   const handleSignOut = () => {
+    booksDataDispatch({ type: ACTION_TYPES.CLEAR_CART });
+    booksDataDispatch({ type: ACTION_TYPES.CLEAR_WISHLIST });
+    booksDataDispatch({
+      type: ACTION_TYPES.CLEAR_ALL_FILTERS,
+      payload: { rangeInitialValue: expensiveBookInCollection },
+    });
     signOutUser();
     navigate("/", { replace: true });
   };
