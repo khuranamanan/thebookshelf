@@ -49,6 +49,8 @@
   color: var(--color-3);
   font-size: 14px;
   cursor: pointer;
+  font-weight: bolder;
+  text-transform: uppercase;
 }
 
 .cart-page-summary-checkout-btn:hover {

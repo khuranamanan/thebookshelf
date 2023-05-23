@@ -6,6 +6,7 @@
   border-radius: 8px;
   background-color: var(--color-3);
   margin: 0 5px;
+  width: 100%;
 }
 
 .cart-card-image-box {
@@ -34,7 +35,7 @@
   text-align: left;
   margin-bottom: 8px;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--color-11);
 }
 
 .cart-card-price {
@@ -87,13 +88,20 @@
 .cart-card-remove-btn,
 .cart-card-wishlist-btn {
   padding: 8px 16px;
-  border: none;
+  border: 2px solid var(--color-7);
   border-radius: 4px;
-  background-color: var(--color-6);
-  color: var(--color-3);
+  background-color: transparent;
+  color: var(--color-6);
   font-size: 14px;
   cursor: pointer;
   margin-right: 8px;
+}
+
+.cart-card-remove-btn:hover,
+.cart-card-wishlist-btn:hover {
+  background-color: var(--color-6);
+  color: var(--color-3);
+  border-color: var(--color-6);
 }
 
 /* Responsive Styles */
