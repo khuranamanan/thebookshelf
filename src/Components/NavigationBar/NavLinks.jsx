@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import NavSearchBox from "./NavSearchBox";
 
 function NavLinks({ isMobileNavLinks = false, mobileNavLinkClickHandler }) {
   return (
@@ -9,6 +10,9 @@ function NavLinks({ isMobileNavLinks = false, mobileNavLinkClickHandler }) {
           : "navbar-links flex-center desktop-nav-links-box"
       }
     >
+      <span className="mobile-search-bar">
+        <NavSearchBox />
+      </span>
       <NavLink
         className="navbar-link"
         to="/"

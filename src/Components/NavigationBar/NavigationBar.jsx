@@ -23,7 +23,9 @@ function NavigationBar() {
       </div>
       <NavLinks />
       <div className="navbar-addons flex-center">
-        <NavSearchBox />
+        <span className="desktop-search-bar">
+          <NavSearchBox />
+        </span>
         <div className="navbar-addons-btns flex-center">
           <button
             className="shopping-bag-button"
