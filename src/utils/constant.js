@@ -15,4 +15,6 @@ export const ACTION_TYPES = {
   ADD_TO_CART: "add-to-cart",
   REMOVE_FRM_CART: "remove-from-cart",
   UPDATE_QTY_CART: "update-qty-cart",
+  ADD_TO_WISHLIST: "add-to-wishlist",
+  REMOVE_FROM_WISHLIST: "remove-from-wishlist",
 };

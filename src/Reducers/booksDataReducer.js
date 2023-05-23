@@ -11,6 +11,7 @@ export const initialState = {
     sortFilter: "POPULARITY",
   },
   cart: [],
+  wishlist: [],
 };
 
 export function booksDataReducer(state, action) {
@@ -142,6 +143,14 @@ export function booksDataReducer(state, action) {
 
     case ACTION_TYPES.UPDATE_QTY_CART: {
       return { ...state, cart: [...action.payload] };
+    }
+
+    case ACTION_TYPES.ADD_TO_WISHLIST: {
+      return { ...state, wishlist: [...action.payload] };
+    }
+
+    case ACTION_TYPES.REMOVE_FROM_WISHLIST: {
+      return { ...state, wishlist: [...action.payload] };
     }
 
     default:
