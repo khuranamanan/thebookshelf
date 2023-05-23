@@ -5,8 +5,8 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import { useNavigate } from "react-router";
-import isProductInCart from "../../utils/isProductInCart";
-import { addToCart } from "../../Services/Cart/cartServices";
+import isProductInCart from "../../utils/Cart/isProductInCart";
+import { addToCart } from "../../utils/Cart/cart";
 
 function ProductActions({ productID, stockQty, book }) {
   const { loginData } = useContext(AuthContext);

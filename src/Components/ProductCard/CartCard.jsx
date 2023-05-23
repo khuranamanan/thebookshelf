@@ -2,10 +2,7 @@ import { useContext } from "react";
 import "./CartCard.css";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
-import {
-  removeFromCart,
-  updateQtyInCart,
-} from "../../Services/Cart/cartServices";
+import { removeFromCart, updateQtyInCart } from "../../utils/Cart/cart";
 
 function CartCard({ data }) {
   const { loginData } = useContext(AuthContext);
