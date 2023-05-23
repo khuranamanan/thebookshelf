@@ -10,6 +10,7 @@ export const initialState = {
     ratingFilter: "All",
     sortFilter: "POPULARITY",
   },
+  cart: [],
 };
 
 export function booksDataReducer(state, action) {
@@ -129,6 +130,18 @@ export function booksDataReducer(state, action) {
           sortFilter: "POPULARITY",
         },
       };
+    }
+
+    case ACTION_TYPES.ADD_TO_CART: {
+      return { ...state, cart: [...action.payload] };
+    }
+
+    case ACTION_TYPES.REMOVE_FRM_CART: {
+      return { ...state, cart: [...action.payload] };
+    }
+
+    case ACTION_TYPES.UPDATE_QTY_CART: {
+      return { ...state, cart: [...action.payload] };
     }
 
     default:

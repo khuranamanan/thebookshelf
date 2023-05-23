@@ -10,7 +10,7 @@ import PageNotFound from "./Pages/PageNotFound";
 import MockmanPage from "./Pages/MockmanPage";
 import LogInPage from "./Pages/LogInPage";
 import SignUpPage from "./Pages/SignUpPage";
-import CartPage from "./Pages/CartPage";
+import CartPage from "./Pages/Cart/CartPage";
 import WishlistPage from "./Pages/WishlistPage";
 import PrivateRoute from "./Components/PrivateRoute";
 import ProfilePage from "./Pages/ProfilePage";

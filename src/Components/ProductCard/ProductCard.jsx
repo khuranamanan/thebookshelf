@@ -56,7 +56,7 @@ function ProductCard({ product }) {
         </div>
         {outOfStockMessage}
       </div>
-      <ProductActions stockQty={stockQty} />
+      <ProductActions productID={_id} stockQty={stockQty} book={product} />
     </div>
   );
 }

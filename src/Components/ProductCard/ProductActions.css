@@ -50,6 +50,15 @@
   background-color: var(--color-11);
 }
 
+.go-to-cart-button {
+  background-color: var(--color-12);
+  color: var(--color-3);
+}
+
+.go-to-cart-button:hover {
+  background-color: var(--color-12);
+}
+
 @media screen and (max-width: 767px) {
   .product-actions {
     flex-direction: column;

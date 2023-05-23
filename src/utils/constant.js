@@ -12,4 +12,7 @@ export const ACTION_TYPES = {
   SORT_FILTER_CHANGE: "sort-filter-change",
   CLEAR_ALL_FILTERS: "clear-all-filters",
   SELECTED_CATEGORY_CARD: "selected-category-card",
+  ADD_TO_CART: "add-to-cart",
+  REMOVE_FRM_CART: "remove-from-cart",
+  UPDATE_QTY_CART: "update-qty-cart",
 };

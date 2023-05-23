@@ -1,0 +1,136 @@
+.cart-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--color-7);
+  border-radius: 8px;
+  background-color: var(--color-3);
+  margin: 0 5px;
+  width: 100%;
+}
+
+.cart-card-image-box {
+  display: flex;
+  justify-content: center;
+}
+
+.cart-card-image {
+  max-width: 100px;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+.cart-card-details {
+  flex-grow: 1;
+}
+
+.cart-card-title {
+  text-align: left;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.cart-card-author {
+  text-align: left;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: var(--color-11);
+}
+
+.cart-card-price {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.cart-card-current-price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cart-card-original-price {
+  font-size: 14px;
+  color: var(--color-11);
+  margin-left: 8px;
+  text-decoration: line-through;
+}
+
+.cart-card-quantity {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.cart-card-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--color-11);
+  border-radius: 50%;
+  background-color: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.cart-card-qty {
+  font-size: 1rem;
+  margin: 0 8px;
+}
+
+.cart-card-buttons {
+  display: flex;
+}
+
+.cart-card-remove-btn,
+.cart-card-wishlist-btn {
+  padding: 8px 16px;
+  border: 2px solid var(--color-7);
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--color-6);
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.cart-card-remove-btn:hover,
+.cart-card-wishlist-btn:hover {
+  background-color: var(--color-6);
+  color: var(--color-3);
+  border-color: var(--color-6);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .cart-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-card-image-box {
+    width: 100%;
+  }
+
+  .cart-card-image {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .cart-card-details {
+    width: 100%;
+  }
+
+  .cart-card-buttons {
+    flex-wrap: wrap;
+  }
+
+  .cart-card-remove-btn,
+  .cart-card-wishlist-btn {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
