@@ -20,7 +20,7 @@ export async function addToCart(
   } catch (err) {
     console.log("Error From Add to Cart:", err.message);
   } finally {
-    setBtnDisabled(() => setBtnDisabled(false));
+    setBtnDisabled(false);
   }
 }
 
