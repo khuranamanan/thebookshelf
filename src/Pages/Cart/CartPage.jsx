@@ -4,10 +4,12 @@ import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import { useNavigate } from "react-router";
 import CartCard from "../../Components/ProductCard/CartCard";
 import CartSummary from "./CartSummary";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 function CartPage() {
   const { cart } = useContext(BooksDataContext);
   const navigate = useNavigate();
+  useDocumentTitle("Cart | The Bookshelf");
 
   const emptyCart = cart.length === 0 && (
     <div className="empty-cart">

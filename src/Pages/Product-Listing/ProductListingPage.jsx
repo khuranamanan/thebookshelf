@@ -6,11 +6,13 @@ import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import { FaFilter } from "react-icons/fa";
 import Pagination from "../../Components/Pagination/Pagination";
 import img404 from "../../assets/404.jpg";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 function ProductListingPage() {
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const { products, displayData } = useContext(BooksDataContext);
   const [currentPage, setCurrentPage] = useState(1);
+  useDocumentTitle("Products | The Bookshelf");
 
   const booksPerPage = 12;
   const indexOfLastBook = currentPage * booksPerPage;

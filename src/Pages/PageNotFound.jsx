@@ -1,7 +1,9 @@
 import "./PageNotFound.css";
 import Image404 from "../assets/404.jpg";
+import useDocumentTitle from "../Hooks/useDocumentTitle";
 
 function PageNotFound() {
+  useDocumentTitle("Page Not Found | The Bookshelf");
   return (
     <div className="page-not-found">
       <h2>Error 404: Page Not Found</h2>

@@ -5,6 +5,7 @@ import logInImg from "../../assets/LogInPageImg.jpg";
 import logo from "../../assets/Colorlogo.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 function LogInPage() {
   const [logInFormData, setLogInFormData] = useState({
@@ -16,6 +17,7 @@ function LogInPage() {
   const { logInUser, loginData } = useContext(AuthContext);
   const [formInputError, setFormInputError] = useState();
   const [showPassword, setShowPassword] = useState();
+  useDocumentTitle("Log In | The Bookshelf");
 
   function handleLogInFormSubmit(event) {
     event.preventDefault();

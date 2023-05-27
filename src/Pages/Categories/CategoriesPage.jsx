@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import CategoryCard from "../../Components/CategoryCard/CategoryCard";
 import "./CategoriesPage.css";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 function CategoriesPage() {
   const { categories } = useContext(BooksDataContext);
+  useDocumentTitle("Categories | The Bookshelf");
 
   const categoriesMapped =
     categories?.data.length !== 0 &&

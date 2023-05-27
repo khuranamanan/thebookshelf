@@ -5,6 +5,7 @@ import signUpImg from "../../assets/SignUpPageImg.jpg";
 import logo from "../../assets/Colorlogo.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 function SignUpPage() {
   const { signUpUser, loginData } = useContext(AuthContext);
@@ -21,6 +22,7 @@ function SignUpPage() {
     confirmPassword: false,
   });
   const navigate = useNavigate();
+  useDocumentTitle("Sign Up | The Bookshelf");
 
   function handleSignUpFormSubmit(e) {
     e.preventDefault();

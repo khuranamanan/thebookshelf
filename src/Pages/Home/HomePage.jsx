@@ -3,9 +3,11 @@ import "./HomePage.css";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import { getRandomBooks } from "../../utils/getRandomBooks";
 import ProductCard from "../../Components/ProductCard/ProductCard";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 function HomePage() {
   const { products } = useContext(BooksDataContext);
+  useDocumentTitle("The Bookshelf");
 
   const bestsellerbooks = products?.data?.filter(
     ({ isBestSeller, stockQty }) => isBestSeller && stockQty

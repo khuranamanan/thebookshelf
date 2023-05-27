@@ -5,6 +5,7 @@ import "./ProfilePage.css";
 import { useNavigate } from "react-router-dom";
 import { ACTION_TYPES } from "../../utils/constant";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 function ProfilePage() {
   const { loginData, signOutUser } = useContext(AuthContext);
@@ -12,6 +13,7 @@ function ProfilePage() {
     useContext(BooksDataContext);
   const { user } = loginData;
   const navigate = useNavigate();
+  useDocumentTitle("Profile | The Bookshelf");
 
   const handleSignOut = () => {
     booksDataDispatch({ type: ACTION_TYPES.CLEAR_CART });

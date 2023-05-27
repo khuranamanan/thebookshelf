@@ -3,10 +3,12 @@ import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import "./WishlistPage.css";
 import { useNavigate } from "react-router";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 function WishlistPage() {
   const { wishlist } = useContext(BooksDataContext);
   const navigate = useNavigate();
+  useDocumentTitle("Wishlist | The Bookshelf");
 
   const noItemsInWishlist = wishlist.length === 0 && (
     <div className="empty-wishlist-message-box flex-center flex-dir-co">

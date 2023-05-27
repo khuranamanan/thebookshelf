@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router";
 import getProductByIDService from "../../Services/getProductByIDService";
 import ProductDetailsCard from "../../Components/ProductCard/ProductDetailsCard";
 import "./ProductDetailsPage.css";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 function ProductDetailsPage() {
   const [currentBook, setCurrentBook] = useState({});
@@ -10,6 +11,10 @@ function ProductDetailsPage() {
   const [isError, setIsError] = useState();
   const { id } = useParams();
   const navigate = useNavigate();
+  const pageTitle = `${currentBook?.title || ""} ${
+    currentBook?.author ? "- " + currentBook?.author + " |" : ""
+  } The Bookshelf`;
+  useDocumentTitle(pageTitle);
 
   const displayCard = currentBook ? (
     <ProductDetailsCard book={currentBook} />

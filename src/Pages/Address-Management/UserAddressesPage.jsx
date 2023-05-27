@@ -4,12 +4,14 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import AddressForm from "./Components/AddressForm";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useNavigate } from "react-router";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 function UserAddressesPage() {
   const { loginData, handleAddAddress, editAddresses, deleteAddress } =
     useContext(AuthContext);
   const [editingAddressId, setEditingAddressId] = useState(null);
   const navigate = useNavigate();
+  useDocumentTitle("Manage Addresses | The Bookshelf");
 
   const handleEditAddress = (address) => {
     const updatedAddresses = loginData.user.userAddresses.map((addr) => {
