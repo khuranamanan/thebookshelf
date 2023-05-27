@@ -1,13 +1,16 @@
-import { createContext, useEffect, useReducer } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { booksDataReducer, initialState } from "../Reducers/booksDataReducer";
 import axios from "axios";
 import { ACTION_TYPES } from "../utils/constant";
 import filterProducts from "../utils/filterProducts";
+import { AuthContext } from "./AuthContext";
 
 export const BooksDataContext = createContext();
 
 function BooksDataProvider({ children }) {
   const [state, booksDataDispatch] = useReducer(booksDataReducer, initialState);
+  const { loginData } = useContext(AuthContext);
 
   async function getProductsData() {
     booksDataDispatch({
@@ -59,6 +62,38 @@ function BooksDataProvider({ children }) {
     }
   }
 
+  async function initialiseCart() {
+    try {
+      const response = await axios.get("/api/user/cart", {
+        headers: {
+          authorization: loginData.token,
+        },
+      });
+      booksDataDispatch({
+        type: ACTION_TYPES.INITIALISE_CART,
+        payload: response.data.cart,
+      });
+    } catch (err) {
+      console.log("Error from initialiseCart", err);
+    }
+  }
+
+  async function initialiseWishlist() {
+    try {
+      const response = await axios.get("/api/user/wishlist", {
+        headers: {
+          authorization: loginData.token,
+        },
+      });
+      booksDataDispatch({
+        type: ACTION_TYPES.INITIALISE_WISHLIST,
+        payload: response.data.wishlist,
+      });
+    } catch (err) {
+      console.log("Error from initialiseWishlist", err);
+    }
+  }
+
   const cheapestBookInCollection = state?.products?.data?.reduce(
     (result, book) => (result > book.price ? book.price : result),
     state?.products?.data[0]?.price
@@ -80,7 +115,11 @@ function BooksDataProvider({ children }) {
   useEffect(() => {
     getProductsData();
     getCategoriesData();
-  }, []);
+    if (loginData.isLoggedIn) {
+      initialiseCart();
+      initialiseWishlist();
+    }
+  }, [loginData.isLoggedIn]);
 
   useEffect(() => {
     (function () {

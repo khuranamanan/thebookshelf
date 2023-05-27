@@ -1,6 +1,8 @@
 export const ACTION_TYPES = {
   INITIALISE_CATEGORIES: "init-categories",
   INITIALISE_PRODUCTS: "init-products",
+  INITIALISE_CART: "initialise-cart",
+  INITIALISE_WISHLIST: "initialise-wishlist",
   SET_IS_LOADING: "set-is-loading",
   SET_IS_ERROR: "set-is-error",
   INITIALIZE_RANGE_FILTER: "init-range-filter",

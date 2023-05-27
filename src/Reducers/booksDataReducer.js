@@ -30,6 +30,14 @@ export function booksDataReducer(state, action) {
       };
     }
 
+    case ACTION_TYPES.INITIALISE_CART: {
+      return { ...state, cart: [...action.payload] };
+    }
+
+    case ACTION_TYPES.INITIALISE_WISHLIST: {
+      return { ...state, wishlist: [...action.payload] };
+    }
+
     case ACTION_TYPES.SET_IS_LOADING: {
       const propertyToTarget = action.payload.propName;
 
