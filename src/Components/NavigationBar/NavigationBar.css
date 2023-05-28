@@ -116,6 +116,13 @@
   display: none;
 }
 
+.nav-search-box {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 1024px) {
   .navbar {
     flex-wrap: wrap;
@@ -179,7 +186,15 @@
   }
 
   .navbar-branding img {
-    max-height: 45px;
+    max-height: 40px;
+  }
+
+  .shopping-bag-button,
+  .sign-in-button,
+  .search-icon,
+  .search-close-icon,
+  .hamburger-icons {
+    font-size: 1.2rem;
   }
 
   .desktop-search-bar {
@@ -187,7 +202,8 @@
   }
 
   .mobile-search-bar {
-    display: flex;
+    display: block;
+    order: 3;
   }
 
   .mobile-nav-links-box {

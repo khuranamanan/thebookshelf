@@ -29,7 +29,7 @@ function NavSearchBox() {
   }
 
   return (
-    <>
+    <div className="nav-search-box">
       {showSearchBar ? (
         <>
           <input
@@ -50,7 +50,7 @@ function NavSearchBox() {
           onClick={() => setShowSearchBar(true)}
         />
       )}
-    </>
+    </div>
   );
 }
 

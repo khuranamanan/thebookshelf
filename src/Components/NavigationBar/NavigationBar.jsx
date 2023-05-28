@@ -33,6 +33,9 @@ function NavigationBar() {
           </NavLink>
         </div>
       </div>
+      <span className="mobile-search-bar">
+        <NavSearchBox />
+      </span>
     </nav>
   );
 }
