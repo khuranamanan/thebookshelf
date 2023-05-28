@@ -24,6 +24,7 @@ function HomePage() {
         image={category.img}
         categoryName={category.categoryName}
         description={category.description}
+        key={category._id}
       />
     ));
 

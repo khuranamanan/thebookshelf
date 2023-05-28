@@ -15,13 +15,12 @@
 .wishlist-content {
   width: 100%;
   flex-grow: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14.2rem, 1fr));
+  display: flex;
   justify-content: center;
-  gap: 0.8rem;
-  flex-direction: column;
-  justify-items: center;
+  gap: 1rem;
   align-items: stretch;
+  flex-wrap: wrap;
+  padding: 15px;
 }
 
 .empty-wishlist-message-box {
