@@ -94,6 +94,22 @@
   cursor: pointer;
 }
 
+.shopping-bag-button {
+  position: relative;
+}
+
+.cart-quantity-batch {
+  background-color: var(--color-10);
+  color: var(--color-3);
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
 .shopping-bag-button.active,
 .sign-in-button.active {
   color: var(--color-5);

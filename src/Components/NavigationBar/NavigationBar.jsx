@@ -1,16 +1,24 @@
 import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { BooksDataContext } from "../../Contexts/BooksDataContext";
 //Components
 import NavSearchBox from "./NavSearchBox";
 import NavLinks from "./NavLinks";
+import MobileNavLinks from "./MobileNavLinks";
 //Assets
 import ColorLogo from "../../assets/Colorlogo.png";
 import { FiShoppingBag } from "react-icons/fi";
 import { BiUserCircle } from "react-icons/bi";
 //CSS
 import "./NavigationBar.css";
-import MobileNavLinks from "./MobileNavLinks";
 
 function NavigationBar() {
+  const { cart } = useContext(BooksDataContext);
+
+  const cartQuantityBatch = cart.length !== 0 && (
+    <span className="cart-quantity-batch">{cart.length}</span>
+  );
+
   return (
     <nav className="navbar flex-center">
       <MobileNavLinks />
@@ -27,6 +35,7 @@ function NavigationBar() {
         <div className="navbar-addons-btns flex-center">
           <NavLink className="shopping-bag-button" to={"/cart"}>
             <FiShoppingBag />
+            {cartQuantityBatch}
           </NavLink>
           <NavLink className="sign-in-button" to={"/profile"}>
             <BiUserCircle />
