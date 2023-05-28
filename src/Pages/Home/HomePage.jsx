@@ -5,9 +5,10 @@ import ProductCard from "../../Components/ProductCard/ProductCard";
 import useDocumentTitle from "../../Hooks/useDocumentTitle";
 import { useNavigate } from "react-router";
 import { ACTION_TYPES } from "../../utils/constant";
+import CategoryCard from "../../Components/CategoryCard/CategoryCard";
 
 function HomePage() {
-  const { products, booksDataDispatch, expensiveBookInCollection } =
+  const { products, categories, booksDataDispatch, expensiveBookInCollection } =
     useContext(BooksDataContext);
   const navigate = useNavigate();
   useDocumentTitle("The Bookshelf");
@@ -15,6 +16,16 @@ function HomePage() {
   const bestsellerbooks = products?.data?.filter(
     ({ isBestSeller, stockQty }) => isBestSeller && stockQty
   );
+
+  const popularCategoriesDisplay = categories?.data
+    ?.slice(0, 3)
+    .map((category) => (
+      <CategoryCard
+        image={category.img}
+        categoryName={category.categoryName}
+        description={category.description}
+      />
+    ));
 
   const bestsellarBooksDisplay = bestsellerbooks
     ?.slice(0, 4)
@@ -49,17 +60,29 @@ function HomePage() {
           </button>
         </div>
       </div>
-      <section className="bestsellers-section">
-        <div className="bestseller-heading">
+      <section className="home-page-section">
+        <div className="home-page-section-heading">
           <h2>Our Bestsellers</h2>
           <button
             className="view-all-button btn-secondary"
             onClick={handleViewBestsellersBtn}
           >
-            View All
+            View All Bestsellers
           </button>
         </div>
         <div className="product-card-container">{bestsellarBooksDisplay}</div>
+      </section>
+      <section className="home-page-section">
+        <div className="home-page-section-heading">
+          <h2>Popular Categories</h2>
+          <button
+            className="view-all-button btn-secondary"
+            onClick={() => navigate("/categories")}
+          >
+            View All Categories
+          </button>
+        </div>
+        <div className="product-card-container">{popularCategoriesDisplay}</div>
       </section>
     </div>
   );
