@@ -1,23 +1,32 @@
 import { useContext } from "react";
 import "./HomePage.css";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
-import { getRandomBooks } from "../../utils/getRandomBooks";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import useDocumentTitle from "../../Hooks/useDocumentTitle";
+import { useNavigate } from "react-router";
+import { ACTION_TYPES } from "../../utils/constant";
 
 function HomePage() {
-  const { products } = useContext(BooksDataContext);
+  const { products, booksDataDispatch, expensiveBookInCollection } =
+    useContext(BooksDataContext);
+  const navigate = useNavigate();
   useDocumentTitle("The Bookshelf");
 
   const bestsellerbooks = products?.data?.filter(
     ({ isBestSeller, stockQty }) => isBestSeller && stockQty
   );
 
-  console.log(products, bestsellerbooks);
+  const bestsellarBooksDisplay = bestsellerbooks
+    ?.slice(0, 4)
+    ?.map((book) => <ProductCard key={book._id} product={book} />);
 
-  const bestsellarBooksDisplay = getRandomBooks(bestsellerbooks, 5)?.map(
-    (book) => <ProductCard key={book._id} product={book} />
-  );
+  function handleViewBestsellersBtn() {
+    booksDataDispatch({
+      type: ACTION_TYPES.VIEW_BESTSELLERS,
+      payload: { priceSlider: expensiveBookInCollection },
+    });
+    navigate("/products");
+  }
 
   return (
     <div className="home-page">
@@ -32,13 +41,23 @@ function HomePage() {
             Discover a world of books and embark on an incredible reading
             journey.
           </p>
-          <button className="explore-button">Explore Books</button>
+          <button
+            className="explore-button"
+            onClick={() => navigate("/products")}
+          >
+            Explore Books
+          </button>
         </div>
       </div>
       <section className="bestsellers-section">
         <div className="bestseller-heading">
           <h2>Our Bestsellers</h2>
-          <button className="view-all-button btn-secondary">View All</button>
+          <button
+            className="view-all-button btn-secondary"
+            onClick={handleViewBestsellersBtn}
+          >
+            View All
+          </button>
         </div>
         <div className="product-card-container">{bestsellarBooksDisplay}</div>
       </section>

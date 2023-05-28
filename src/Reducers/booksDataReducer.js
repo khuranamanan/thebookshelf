@@ -169,6 +169,20 @@ export function booksDataReducer(state, action) {
       return { ...state, wishlist: [] };
     }
 
+    case ACTION_TYPES.VIEW_BESTSELLERS: {
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          searchKey: "",
+          priceSlider: action.payload.priceSlider,
+          selectedCategories: [],
+          ratingFilter: "All",
+          sortFilter: "BESTSELLER_FIRST",
+        },
+      };
+    }
+
     default:
       return state;
   }

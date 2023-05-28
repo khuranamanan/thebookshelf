@@ -21,4 +21,5 @@ export const ACTION_TYPES = {
   REMOVE_FROM_WISHLIST: "remove-from-wishlist",
   CLEAR_CART: "clear-cart",
   CLEAR_WISHLIST: "clear-wishlist",
+  VIEW_BESTSELLERS: "view-bestsellers",
 };
