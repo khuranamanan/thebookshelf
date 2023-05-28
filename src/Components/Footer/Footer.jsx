@@ -26,17 +26,20 @@ function Footer() {
           <h3>Connect with Us</h3>
           <ul className="social-links">
             <li>
-              <Link to="https://github.com" target="_blank">
+              <Link to="https://github.com/khuranamanan" target="_blank">
                 <i className="fab fa-github"></i>
               </Link>
             </li>
             <li>
-              <Link to="https://twitter.com" target="_blank">
+              <Link to="https://twitter.com/MananKhurrana" target="_blank">
                 <i className="fab fa-twitter"></i>
               </Link>
             </li>
             <li>
-              <Link to="https://linkedin.com" target="_blank">
+              <Link
+                to="https://www.linkedin.com/in/manan-khurana-1b135b19b/"
+                target="_blank"
+              >
                 <i className="fab fa-linkedin"></i>
               </Link>
             </li>
