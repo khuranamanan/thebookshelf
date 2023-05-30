@@ -2,7 +2,13 @@ import { NavLink } from "react-router-dom";
 
 function NavLinks({ isMobileNavLinks = false, mobileNavLinkClickHandler }) {
   return (
-    <div className={"navbar-links flex-center desktop-nav-links-box"}>
+    <div
+      className={
+        isMobileNavLinks
+          ? "navbar-links flex-center flex-dir-co mobile-nav-links-box"
+          : "navbar-links flex-center desktop-nav-links-box"
+      }
+    >
       <NavLink
         className="navbar-link"
         to="/"
