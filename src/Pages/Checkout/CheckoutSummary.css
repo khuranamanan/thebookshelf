@@ -1,0 +1,72 @@
+.checkout-page-summary {
+  background-color: var(--color-3);
+  padding: 1rem;
+  margin: 10px;
+  margin-top: 0;
+  border-radius: 8px;
+  border: 1px solid var(--color-7);
+}
+
+.checkout-page-summary-heading {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.checkout-page-summary-heading:first-of-type {
+  margin-top: 0;
+}
+
+.checkout-page-summary-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.checkout-page-summary-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.checkout-page-summary-list li span:nth-child(1) {
+  font-weight: bold;
+}
+
+.checkout-page-summary-total-amount {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.checkout-page-summary-savings {
+  color: var(--color-12);
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.checkout-page-summary-place-order-btn {
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-5);
+  color: var(--color-3);
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.checkout-page-summary-place-order-btn:hover {
+  background-color: var(--color-4);
+}
+
+.checkout-page-order-details-subheading {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.checkout-page-summary-list .checkout-page-order-details-book-title {
+  width: 60%;
+  font-weight: 400;
+}
