@@ -2,12 +2,10 @@ import { useContext } from "react";
 import "./CartSummary.css";
 import { OrderContext } from "../../Contexts/OrderConext";
 import { ACTION_TYPES } from "../../utils/constant";
-import { AuthContext } from "../../Contexts/AuthContext";
 import { useNavigate } from "react-router";
 
 function CartSummary({ cart }) {
   const { orderDispatch } = useContext(OrderContext);
-  const { loginData } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const totalQuantity = cart?.reduce((total, item) => total + item.qty, 0);
@@ -31,10 +29,6 @@ function CartSummary({ cart }) {
         deliveryCharges,
         totalAmount,
       },
-    });
-    orderDispatch({
-      type: ACTION_TYPES.SET_ORDER_ADDRESS,
-      payload: loginData.user.userAddresses[0],
     });
     navigate("/checkout");
   }

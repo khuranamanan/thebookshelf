@@ -60,7 +60,13 @@ function CheckoutPage() {
     if (cart.length === 0) {
       navigate("/products");
     }
-  }, [cart.length, navigate]);
+    if (cart.length !== 0) {
+      orderDispatch({
+        type: ACTION_TYPES.SET_ORDER_ADDRESS,
+        payload: loginData?.user?.userAddresses[0],
+      });
+    }
+  }, [cart.length, loginData?.user?.userAddresses, navigate, orderDispatch]);
 
   return (
     <div className="checkout-page">
