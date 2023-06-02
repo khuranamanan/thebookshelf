@@ -18,6 +18,7 @@ import UserAddressesPage from "./Pages/Address-Management/UserAddressesPage";
 import ProductListingPage from "./Pages/Product-Listing/ProductListingPage";
 import ProductDetailsPage from "./Pages/ProductDetails/ProductDetailsPage";
 import CategoriesPage from "./Pages/Categories/CategoriesPage";
+import CheckoutPage from "./Pages/Checkout/CheckoutPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -45,6 +46,7 @@ const router = createBrowserRouter(
             </PrivateRoute>
           }
         />
+        <Route path="checkout" element={<CheckoutPage />} />
         <Route path="profile">
           <Route
             index

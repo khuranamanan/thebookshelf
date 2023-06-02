@@ -6,6 +6,7 @@ import { createRoot } from "react-dom/client";
 import { makeServer } from "./server";
 import BooksDataProvider from "./Contexts/BooksDataContext";
 import AuthProvider from "./Contexts/AuthContext";
+import { OrderProvider } from "./Contexts/OrderConext";
 
 // Call make Server
 makeServer();
@@ -14,7 +15,9 @@ createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
       <BooksDataProvider>
-        <App />
+        <OrderProvider>
+          <App />
+        </OrderProvider>
       </BooksDataProvider>
     </AuthProvider>
   </React.StrictMode>

@@ -22,4 +22,6 @@ export const ACTION_TYPES = {
   CLEAR_CART: "clear-cart",
   CLEAR_WISHLIST: "clear-wishlist",
   VIEW_BESTSELLERS: "view-bestsellers",
+  SET_ORDER_DETAILS: "set-order-details",
+  SET_ORDER_ADDRESS: "set-order-address",
 };
