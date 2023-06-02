@@ -1,5 +1,6 @@
 import { Route, RouterProvider, createRoutesFromElements } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
+import { ToastContainer, Slide } from "react-toastify";
 
 //Layouts
 import RootLayout from "./Layouts/RootLayout";
@@ -78,6 +79,19 @@ const router = createBrowserRouter(
 function App() {
   return (
     <div className="App">
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        transition={Slide}
+        theme="light"
+      />
       <RouterProvider router={router} />
     </div>
   );
