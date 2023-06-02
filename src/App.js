@@ -1,6 +1,7 @@
 import { Route, RouterProvider, createRoutesFromElements } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
 import { ToastContainer, Slide } from "react-toastify";
+import Backdrop from "@mui/material/Backdrop";
 
 //Layouts
 import RootLayout from "./Layouts/RootLayout";
@@ -20,6 +21,9 @@ import ProductListingPage from "./Pages/Product-Listing/ProductListingPage";
 import ProductDetailsPage from "./Pages/ProductDetails/ProductDetailsPage";
 import CategoriesPage from "./Pages/Categories/CategoriesPage";
 import CheckoutPage from "./Pages/Checkout/CheckoutPage";
+import { useContext } from "react";
+import { BooksDataContext } from "./Contexts/BooksDataContext";
+import { BounceLoader } from "react-spinners";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -77,8 +81,19 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  const { loader } = useContext(BooksDataContext);
+
+  const loaderElement = loader && (
+    <Backdrop
+      sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      open
+    >
+      <BounceLoader color="#ffcd3c" />
+    </Backdrop>
+  );
   return (
     <div className="App">
+      {loaderElement}
       <ToastContainer
         position="top-center"
         autoClose={3000}
