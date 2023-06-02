@@ -34,13 +34,11 @@ function BooksDataProvider({ children }) {
     0
   );
 
-  const displayData =
-    state?.products?.data &&
-    filterProducts(
-      [...state?.products?.data],
-      state.filters,
-      expensiveBookInCollection
-    );
+  const displayData = filterProducts(
+    [...state?.products?.data],
+    state.filters,
+    expensiveBookInCollection
+  );
 
   useEffect(() => {
     getProductsData(booksDataDispatch, setLoader);
