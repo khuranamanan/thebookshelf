@@ -1,5 +1,3 @@
-import { v4 as uuid } from "uuid";
-
 /**
  * Product Database can be added here.
  * You can add products of your wish with different attributes
@@ -7,7 +5,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    _id: uuid(),
+    _id: "50d36300-0d4f-4e8c-9251-d830f22cf250",
     img: "https://m.media-amazon.com/images/I/41yu2qXhXXL._SX324_BO1,204,203,200_.jpg",
     title: "Sapiens: A Brief History of Humankind",
     author: "Yuval Noah Harari",
@@ -25,7 +23,7 @@ export const products = [
       "Sapiens: A Brief History of Humankind is a captivating exploration of the history and evolution of Homo sapiens. Yuval Noah Harari takes readers on a thought-provoking journey, examining key events and developments that shaped our species. From the emergence of Homo sapiens in Africa to the rise of agriculture and the scientific revolution, this book offers a unique perspective on the human story.",
   },
   {
-    _id: uuid(),
+    _id: "683461d5-0203-4ab1-876a-9f7809acae50",
     img: "https://m.media-amazon.com/images/I/714FbKtXS+L.jpg",
     title: "The Power of Now",
     author: "Eckhart Tolle",
@@ -43,7 +41,7 @@ export const products = [
       "The Power of Now is a transformative guide that emphasizes the importance of living in the present moment. Eckhart Tolle provides insights and practical advice to help readers achieve a state of inner peace and clarity. By focusing on the present and letting go of past regrets and future worries, this book offers a pathway to experiencing a deeper sense of joy and fulfillment in life.",
   },
   {
-    _id: uuid(),
+    _id: "c8197b8e-ebeb-4f45-a09f-f7daa96fd54b",
     img: "https://m.media-amazon.com/images/I/81dDwAzxtrL.jpg",
     title: "Becoming",
     author: "Michelle Obama",
@@ -61,7 +59,7 @@ export const products = [
       "Becoming is a powerful memoir by Michelle Obama, sharing her journey from a young girl on the South Side of Chicago to becoming the First Lady of the United States. With authenticity and grace, Obama reflects on her experiences, personal growth, and the impact of her role in the White House. This inspiring book provides insights into her life, her advocacy for various causes, and her unwavering commitment to empowering others.",
   },
   {
-    _id: uuid(),
+    _id: "8722e353-6b3c-4cd8-ae9d-aa3f1eafa5fd",
     img: "https://m.media-amazon.com/images/I/71m+kC4vOxL.jpg",
     title: "Thinking, Fast and Slow",
     author: "Daniel Kahneman",
@@ -79,7 +77,7 @@ export const products = [
       "Thinking, Fast and Slow is a groundbreaking exploration of the mind and the two systems that drive how we think: the fast, intuitive system, and the slow, deliberate system. Daniel Kahneman, a renowned psychologist and Nobel laureate, delves into the cognitive biases and heuristics that shape our decision-making processes. This book offers valuable insights into human behavior, reasoning, and the complexities of the mind.",
   },
   {
-    _id: uuid(),
+    _id: "853d3239-147e-4c7b-8da7-e65d3a85ea7a",
     img: "https://m.media-amazon.com/images/I/81oMQeXD1PL.jpg",
     title: "Blink: The Power of Thinking Without Thinking",
     author: "Malcolm Gladwell",
@@ -97,7 +95,7 @@ export const products = [
       "Blink: The Power of Thinking Without Thinking explores the power of intuitive thinking and snap judgments. Malcolm Gladwell investigates the concept of 'thin-slicing' and how our unconscious mind can make accurate decisions in the blink of an eye. Through captivating anecdotes and scientific research, Gladwell sheds light on the fascinating world of rapid cognition and the factors that influence our instincts and gut feelings.",
   },
   {
-    _id: uuid(),
+    _id: "78691cde-9f51-465c-8f50-714f60bd6aee",
     img: "https://m.media-amazon.com/images/I/81gepf1eMqL.jpg",
     title: "To Kill a Mockingbird",
     author: "Harper Lee",
@@ -115,7 +113,7 @@ export const products = [
       "To Kill a Mockingbird is a classic novel that explores themes of racial injustice and the loss of innocence in the American South.",
   },
   {
-    _id: uuid(),
+    _id: "2b33e68d-10e2-4a7b-9cbe-8be8668ae658",
     img: "https://m.media-amazon.com/images/I/71kxa1-0mfL.jpg",
     title: "1984",
     author: "George Orwell",
@@ -133,7 +131,7 @@ export const products = [
       "1984 is a dystopian novel that depicts a totalitarian society and explores themes of government surveillance, thought control, and manipulation of truth.",
   },
   {
-    _id: uuid(),
+    _id: "d2405893-7864-47d2-8360-c5f7c0de64f6",
     img: "https://m.media-amazon.com/images/I/71FTb9X6wsL.jpg",
     title: "The Great Gatsby",
     author: "F. Scott Fitzgerald",
@@ -151,7 +149,7 @@ export const products = [
       "The Great Gatsby is a classic novel that explores themes of wealth, love, and the American Dream in the 1920s.",
   },
   {
-    _id: uuid(),
+    _id: "bf1914e1-267a-4317-acdf-d7a8c050bbee",
     img: "https://m.media-amazon.com/images/I/91HPG31dTwL.jpg",
     title: "The Catcher in the Rye",
     author: "J.D. Salinger",
@@ -169,7 +167,7 @@ export const products = [
       "The Catcher in the Rye is a coming-of-age novel that follows the story of Holden Caulfield, a teenager grappling with identity, loss, and societal conformity.",
   },
   {
-    _id: uuid(),
+    _id: "3250bde0-b182-459a-a2ea-f92bbefb2d2b",
     img: "https://m.media-amazon.com/images/I/71jLBXtWJWL.jpg",
     title: "The Lord of the Rings",
     author: "J.R.R. Tolkien",
@@ -187,7 +185,7 @@ export const products = [
       "The Lord of the Rings is a fantasy epic that takes place in the fictional world of Middle-earth and follows the quest to destroy the One Ring and defeat the Dark Lord Sauron.",
   },
   {
-    _id: uuid(),
+    _id: "10f84bd6-3ee6-4bce-8d60-3d2af4927acd",
     img: "https://m.media-amazon.com/images/I/41KjuBg5k8L._SX498_BO1,204,203,200_.jpg",
     title: "Gone Girl",
     author: "Gillian Flynn",
@@ -205,7 +203,7 @@ export const products = [
       "Gone Girl is a psychological thriller novel that explores the story of a marriage gone wrong, filled with twists and unexpected turns.",
   },
   {
-    _id: uuid(),
+    _id: "91750aeb-3a6b-467b-8458-0ca227cc131a",
     img: "https://m.media-amazon.com/images/I/71ErsKpwmrS.jpg",
     title: "The Girl on the Train",
     author: "Paula Hawkins",
@@ -223,7 +221,7 @@ export const products = [
       "The Girl on the Train is a gripping psychological thriller that follows the story of a woman who becomes entangled in a mysterious disappearance.",
   },
   {
-    _id: uuid(),
+    _id: "52f5237b-06df-4a1c-ba6b-20ae393cc053",
     img: "https://m.media-amazon.com/images/I/91Q5dCjc2KL.jpg",
     title: "The Da Vinci Code",
     author: "Dan Brown",
@@ -241,7 +239,7 @@ export const products = [
       "The Da Vinci Code is a captivating thriller that combines art, history, and mystery as the protagonist uncovers a hidden secret that could change the course of history.",
   },
   {
-    _id: uuid(),
+    _id: "a4b1d3bc-cfaf-4980-a135-68b31bc5cbc4",
     img: "https://m.media-amazon.com/images/I/51oVTRsjcqL._SX329_BO1,204,203,200_.jpg",
     title: "The Silent Patient",
     author: "Alex Michaelides",
@@ -259,7 +257,7 @@ export const products = [
       "The Silent Patient is a gripping psychological thriller that follows the story of a renowned artist who suddenly stops speaking after a brutal crime and the psychotherapist who becomes obsessed with uncovering the truth.",
   },
   {
-    _id: uuid(),
+    _id: "1a09c311-a46a-4da5-932d-d957cacc038e",
     img: "https://m.media-amazon.com/images/I/81UhKOBDrCL.jpg",
     title: "The Girl with the Dragon Tattoo",
     author: "Stieg Larsson",
@@ -277,7 +275,7 @@ export const products = [
       "The Girl with the Dragon Tattoo is a gripping crime thriller that follows the story of a journalist and a talented hacker as they delve into a dark and complex mystery involving a wealthy family.",
   },
   {
-    _id: uuid(),
+    _id: "9e8cc588-f1c7-4054-8c0e-da89a3477a1f",
     img: "https://m.media-amazon.com/images/I/71Q1tPupKjL.jpg",
     title: "Pride and Prejudice",
     author: "Jane Austen",
@@ -295,7 +293,7 @@ export const products = [
       "Pride and Prejudice is a classic romance novel that follows the story of Elizabeth Bennet and her complicated relationship with the proud Mr. Darcy.",
   },
   {
-    _id: uuid(),
+    _id: "11f97de0-ddd3-4ef0-ba4e-c7d3b1b31c68",
     img: "https://m.media-amazon.com/images/I/91xD+7HtVfL.jpg",
     title: "Outlander",
     author: "Diana Gabaldon",
@@ -313,7 +311,7 @@ export const products = [
       "Outlander is a historical romance novel that follows the story of Claire Randall, a World War II nurse who finds herself transported back in time to 18th-century Scotland, where she meets the dashing Jamie Fraser.",
   },
   {
-    _id: uuid(),
+    _id: "7e64b078-26a3-468c-ae45-62dbc149dd30",
     img: "https://m.media-amazon.com/images/I/710v59ixsEL.jpg",
     title: "The Notebook",
     author: "Nicholas Sparks",
@@ -331,7 +329,7 @@ export const products = [
       "The Notebook is a heartwarming love story that follows the journey of Noah and Allie, two young lovers whose paths cross again years after their summer romance.",
   },
   {
-    _id: uuid(),
+    _id: "c300f943-d87c-4a8c-a2b9-25f25f2680ba",
     img: "https://m.media-amazon.com/images/I/81COeJEEL7L.jpg",
     title: "Me Before You",
     author: "Jojo Moyes",
@@ -349,7 +347,7 @@ export const products = [
       "Me Before You is a poignant romance novel that tells the story of Louisa Clark, a young woman who becomes a caregiver for Will Traynor, a quadriplegic man, and their deepening connection that challenges their perspectives on life and love.",
   },
   {
-    _id: uuid(),
+    _id: "073d668c-24a5-4671-ad68-04d42b2c23cb",
     img: "https://m.media-amazon.com/images/I/A1c9bOWb6RL.jpg",
     title: "The Fault in Our Stars",
     author: "John Green",
@@ -367,7 +365,7 @@ export const products = [
       "The Fault in Our Stars is a heart-wrenching young adult romance novel that follows the story of Hazel and Gus, two teenagers living with cancer, as they navigate love, friendship, and the complexities of life.",
   },
   {
-    _id: uuid(),
+    _id: "6597191e-e8dd-40c8-b1b0-55f026c6fcaa",
     img: "https://m.media-amazon.com/images/I/917TGSXH7RL.jpg",
     title: "Meditations",
     author: "Marcus Aurelius",
@@ -385,7 +383,7 @@ export const products = [
       "Meditations is a collection of personal reflections and philosophical thoughts written by Marcus Aurelius, offering insights on Stoicism and the art of living a virtuous life.",
   },
   {
-    _id: uuid(),
+    _id: "1345fa38-3cd3-4cc0-b390-3d8046af35fe",
     img: "https://m.media-amazon.com/images/I/9176A9Hpd2L.jpg",
     title: "Thus Spoke Zarathustra",
     author: "Friedrich Nietzsche",
@@ -403,7 +401,7 @@ export const products = [
       "Thus Spoke Zarathustra is a philosophical novel by Friedrich Nietzsche, exploring themes of the death of God, the will to power, and the eternal recurrence of the same.",
   },
   {
-    _id: uuid(),
+    _id: "f549e22e-2112-4836-a320-0647f02db8ba",
     img: "https://m.media-amazon.com/images/I/81Kr+YIWjCL.jpg",
     title: "Beyond Good and Evil",
     author: "Friedrich Nietzsche",
@@ -421,7 +419,7 @@ export const products = [
       "Beyond Good and Evil is a philosophical book by Friedrich Nietzsche, challenging traditional moral and philosophical concepts and advocating for the reevaluation of values.",
   },
   {
-    _id: uuid(),
+    _id: "44568357-9836-4363-a017-a5f5f4b13bf2",
     img: "https://m.media-amazon.com/images/I/81PEato5oDL.jpg",
     title: "The Republic",
     author: "Plato",
@@ -439,7 +437,7 @@ export const products = [
       "The Republic is a philosophical dialogue by Plato, discussing various topics such as justice, the nature of the ideal state, and the role of philosophy in society.",
   },
   {
-    _id: uuid(),
+    _id: "b5f4aeae-3478-4614-a2bd-c34f8d528dff",
     img: "https://m.media-amazon.com/images/I/71qbK90zBjL.jpg",
     title: "The Art of War",
     author: "Sun Tzu",
@@ -457,7 +455,7 @@ export const products = [
       "The Art of War is a treatise on military strategy written by Sun Tzu, providing insights into warfare tactics, leadership, and the importance of strategic planning.",
   },
   {
-    _id: uuid(),
+    _id: "048b9200-4cb8-4a28-98cd-677c21105534",
     img: "https://m.media-amazon.com/images/I/61wADuboi4L.jpg",
     title: "The 7 Habits of Highly Effective People",
     author: "Stephen R. Covey",
@@ -475,7 +473,7 @@ export const products = [
       "The 7 Habits of Highly Effective People is a self-help book by Stephen R. Covey, providing a holistic approach to personal and professional effectiveness based on timeless principles and habits.",
   },
   {
-    _id: uuid(),
+    _id: "28e57440-fbe9-4b0b-a8e2-ba34c142c359",
     img: "https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
     title: "Atomic Habits",
     author: "James Clear",
@@ -493,7 +491,7 @@ export const products = [
       "Atomic Habits is a self-help book by James Clear, providing practical strategies for building good habits, breaking bad ones, and mastering the art of continuous improvement.",
   },
   {
-    _id: uuid(),
+    _id: "f822f2d0-a645-4547-869d-331bdb89254a",
     img: "https://m.media-amazon.com/images/I/51Hfv2MfNGL._SX331_BO1,204,203,200_.jpg",
     title: "Rich Dad Poor Dad",
     author: "Robert T. Kiyosaki",
@@ -511,7 +509,7 @@ export const products = [
       "Rich Dad Poor Dad is a personal finance book by Robert T. Kiyosaki, presenting his experiences and insights into financial education, wealth creation, and the mindset required for financial success.",
   },
   {
-    _id: uuid(),
+    _id: "157788ac-78ec-4291-b646-0fc057344d05",
     img: "https://m.media-amazon.com/images/I/71QKQ9mwV7L.jpg",
     title: "The Subtle Art of Not Giving a F*ck",
     author: "Mark Manson",
@@ -529,7 +527,7 @@ export const products = [
       "The Subtle Art of Not Giving a F*ck is a self-help book by Mark Manson, encouraging readers to embrace a more honest and less positive-thinking approach to life.",
   },
   {
-    _id: uuid(),
+    _id: "cecf1f54-ded2-48a5-9a1e-9b1e4b1f75ee",
     img: "https://m.media-amazon.com/images/I/919mmNCTaaL.jpg",
     title: "The Intelligent Investor",
     author: "Benjamin Graham",
@@ -547,7 +545,7 @@ export const products = [
       "The Intelligent Investor is a finance book by Benjamin Graham, providing guidance and principles for investing wisely and avoiding common pitfalls in the stock market.",
   },
   {
-    _id: uuid(),
+    _id: "93625ee9-fdbb-463b-a300-0fd28438366a",
     img: "https://m.media-amazon.com/images/I/71K518cj-jL.jpg",
     title: "A Random Walk Down Wall Street",
     author: "Burton G. Malkiel",
@@ -565,7 +563,7 @@ export const products = [
       "A Random Walk Down Wall Street is a finance book by Burton G. Malkiel, providing insights into investment strategies and the efficient market hypothesis.",
   },
   {
-    _id: uuid(),
+    _id: "aacca51e-235c-425e-b365-5b3e64c4f469",
     img: "https://m.media-amazon.com/images/I/81-QB7nDh4L.jpg",
     title: "The Lean Startup",
     author: "Eric Ries",
@@ -583,7 +581,7 @@ export const products = [
       "The Lean Startup is a business book by Eric Ries, presenting a methodology for developing startups and products through validated learning, scientific experimentation, and iterative practices.",
   },
   {
-    _id: uuid(),
+    _id: "0d8fa490-e4b9-4d4f-a5b2-3d1acf30a3ee",
     img: "https://m.media-amazon.com/images/I/41kONb0oymL._SX330_BO1,204,203,200_.jpg",
     title: "The E-Myth Revisited",
     author: "Michael E. Gerber",
@@ -601,7 +599,7 @@ export const products = [
       "The E-Myth Revisited is a business book by Michael E. Gerber, exploring the myths and misconceptions surrounding starting and running small businesses, and providing guidance on building successful enterprises.",
   },
   {
-    _id: uuid(),
+    _id: "bbfa3d91-991c-4b79-9768-3152d0178bf4",
     img: "https://m.media-amazon.com/images/I/61YfNhp-6uL.jpg",
     title: "Good to Great",
     author: "Jim Collins",
@@ -619,7 +617,7 @@ export const products = [
       "Good to Great is a business book by Jim Collins, investigating why some companies make the leap from being good to becoming truly great and sustainable over time.",
   },
   {
-    _id: uuid(),
+    _id: "53c0a359-3c86-4240-86da-533034bd02a1",
     img: "https://m.media-amazon.com/images/I/51MLvC+JryL.jpg",
     title: "The Four Steps to the Epiphany",
     author: "Steve Blank",
@@ -637,7 +635,7 @@ export const products = [
       "The Four Steps to the Epiphany is a business book by Steve Blank, offering insights and practical advice on building successful startups based on the customer development process.",
   },
   {
-    _id: uuid(),
+    _id: "85dde296-4e47-42e0-b74d-9a1945675d9c",
     img: "https://m.media-amazon.com/images/I/811pr+4v89L.jpg",
     title: "The Innovator's Dilemma",
     author: "Clayton M. Christensen",
@@ -655,7 +653,7 @@ export const products = [
       "The Innovator's Dilemma is a business book by Clayton M. Christensen, presenting the concept of disruptive innovation and its impact on established companies.",
   },
   {
-    _id: uuid(),
+    _id: "566bce89-3406-4dfa-8f99-5ed9bbf1d8bc",
     img: "https://m.media-amazon.com/images/I/810u9MkT3SL.jpg",
     title: "The Hard Thing About Hard Things",
     author: "Ben Horowitz",
@@ -673,7 +671,7 @@ export const products = [
       "The Hard Thing About Hard Things is a business book by Ben Horowitz, sharing practical advice and insights on the challenges faced by startup founders and CEOs.",
   },
   {
-    _id: uuid(),
+    _id: "cf36c416-7cb1-4f40-a184-29024dbf5952",
     img: "https://m.media-amazon.com/images/I/91y5XODFZ+L.jpg",
     title: "The Diary of a Young Girl",
     author: "Anne Frank",
@@ -691,7 +689,7 @@ export const products = [
       "The Diary of a Young Girl is a biographical book by Anne Frank, offering a firsthand account of her life in hiding during the Nazi occupation of the Netherlands.",
   },
   {
-    _id: uuid(),
+    _id: "27a4aafc-edef-4641-91a6-864e5f0423ed",
     img: "https://m.media-amazon.com/images/I/51ZaFL6B7lL.jpg",
     title: "Hamlet",
     author: "William Shakespeare",
@@ -709,7 +707,7 @@ export const products = [
       "Hamlet is a famous tragedy by William Shakespeare, exploring themes of revenge, betrayal, and moral dilemmas.",
   },
   {
-    _id: uuid(),
+    _id: "45359118-c66c-4148-9dfb-419dd5562e1a",
     img: "https://m.media-amazon.com/images/I/91D4YvdC0dL.jpg",
     title: "Brave New World",
     author: "Aldous Huxley",
@@ -727,7 +725,7 @@ export const products = [
       "Brave New World is a dystopian novel by Aldous Huxley, presenting a future society where human life is controlled and regulated in pursuit of stability and happiness.",
   },
   {
-    _id: uuid(),
+    _id: "caef8455-7d69-4916-8406-659222d99e0c",
     img: "https://m.media-amazon.com/images/I/41CiEb1Qx2L._SX355_BO1,204,203,200_.jpg",
     title: "The Perks of Being a Wallflower",
     author: "Stephen Chbosky",
@@ -745,7 +743,7 @@ export const products = [
       "The Perks of Being a Wallflower is a coming-of-age novel by Stephen Chbosky. It follows the story of Charlie, an introverted high school freshman, as he navigates friendship, love, and the challenges of growing up.",
   },
   {
-    _id: uuid(),
+    _id: "d1d74e10-9adb-43c1-a3ae-a64c1b49d649",
     img: "https://m.media-amazon.com/images/I/81RdveuYXWL.jpg",
     title: "Guns, Germs, and Steel",
     author: "Jared Diamond",
@@ -763,7 +761,7 @@ export const products = [
       "Guns, Germs, and Steel is a book by Jared Diamond that examines the impact of geographic and environmental factors on the rise of civilizations. Diamond explores the inequalities between different societies and provides a thought-provoking analysis of human history.",
   },
   {
-    _id: uuid(),
+    _id: "500dd8c7-7f55-4691-9727-2b3a1ed7a808",
     img: "https://m.media-amazon.com/images/I/71gwdjwLMPL.jpg",
     title: "Why Has Nobody Told Me This Before?",
     author: "Dr. Julie Smith",
@@ -781,7 +779,7 @@ export const products = [
       "Why Has Nobody Told Me This Before? is a self-help book by Dr. Julie Smith. It provides practical advice and insights for overcoming common challenges and achieving personal growth. The book covers a range of topics related to self-improvement and has received positive reviews for its actionable strategies.",
   },
   {
-    _id: uuid(),
+    _id: "17ebd901-60d2-4bfa-9870-f88278673efc",
     img: "https://m.media-amazon.com/images/I/81m1s4wIPML.jpg",
     title: "Harry Potter and the Philosopher's Stone",
     author: "J.K. Rowling",
@@ -799,7 +797,7 @@ export const products = [
       "Harry Potter and the Philosopher's Stone is the first book in the Harry Potter series by J.K. Rowling. It introduces readers to the world of Hogwarts School of Witchcraft and Wizardry and follows the journey of Harry Potter as he discovers his magical abilities and confronts the dark wizard Lord Voldemort. The book explores themes of friendship, courage, and the power of love.",
   },
   {
-    _id: uuid(),
+    _id: "88ce2089-37e5-4087-a521-10f8304b4ab6",
     img: "https://m.media-amazon.com/images/I/81S0LnPGGUL.jpg",
     title: "Harry Potter and the Chamber of Secrets",
     author: "J.K. Rowling",
@@ -817,7 +815,7 @@ export const products = [
       "Harry Potter and the Chamber of Secrets is the second book in the Harry Potter series by J.K. Rowling. In this book, Harry returns to Hogwarts School of Witchcraft and Wizardry for his second year, encountering a series of mysterious and dangerous events. The book explores themes of bravery, prejudice, and the power of truth.",
   },
   {
-    _id: uuid(),
+    _id: "1b7c0b84-bda0-4124-85cf-07cf8d3bde44",
     img: "https://m.media-amazon.com/images/I/81f7bXC-tTL.jpg",
     title: "Harry Potter and the Prisoner of Azkaban",
     author: "J.K. Rowling",
@@ -835,7 +833,7 @@ export const products = [
       "Harry Potter and the Prisoner of Azkaban is the third book in the Harry Potter series by J.K. Rowling. In this installment, Harry returns to Hogwarts School of Witchcraft and Wizardry, where he encounters a dangerous escaped prisoner and learns more about his own past. The book delves into themes of friendship, loyalty, and the choices we make.",
   },
   {
-    _id: uuid(),
+    _id: "f136cd24-b3cd-4fa4-93ee-a9c4ebd58da0",
     img: "https://m.media-amazon.com/images/I/810jKiNChxL.jpg",
     title: "Harry Potter and the Goblet of Fire",
     author: "J.K. Rowling",
@@ -853,7 +851,7 @@ export const products = [
       "Harry Potter and the Goblet of Fire is the fourth book in the Harry Potter series by J.K. Rowling. In this installment, Harry competes in the Triwizard Tournament, uncovering dark secrets and facing dangerous challenges. The book explores themes of identity, betrayal, and the consequences of choices.",
   },
   {
-    _id: uuid(),
+    _id: "141dd07a-f6bc-4f27-a33d-b6a321fa79de",
     img: "https://m.media-amazon.com/images/I/81a4yXpXjnL.jpg",
     title: "Harry Potter and the Order of the Phoenix",
     author: "J.K. Rowling",
@@ -871,7 +869,7 @@ export const products = [
       "Harry Potter and the Order of the Phoenix is the fifth book in the Harry Potter series by J.K. Rowling. In this installment, Harry faces new challenges and forms a secret society to counter Lord Voldemort's influence. The book explores themes of rebellion, adolescence, and the power of unity.",
   },
   {
-    _id: uuid(),
+    _id: "51fa5d21-6baa-4b83-99a3-bbcd4fa5ddd3",
     img: "https://m.media-amazon.com/images/I/81p2+4nYtkL.jpg",
     title: "Harry Potter and the Half-Blood Prince",
     author: "J.K. Rowling",
@@ -889,7 +887,7 @@ export const products = [
       "Harry Potter and the Half-Blood Prince is the sixth book in the Harry Potter series by J.K. Rowling. In this installment, Harry continues his magical education at Hogwarts School of Witchcraft and Wizardry while facing the growing threat of Lord Voldemort. The book delves into themes of love, loss, and the complexities of loyalty.",
   },
   {
-    _id: uuid(),
+    _id: "555412f8-fed8-4402-88da-22ec89087278",
     img: "https://m.media-amazon.com/images/I/81Whkax7IGL.jpg",
     title: "Harry Potter and the Deathly Hallows",
     author: "J.K. Rowling",
