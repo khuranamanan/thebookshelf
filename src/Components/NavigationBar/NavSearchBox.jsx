@@ -4,6 +4,7 @@ import { BiSearch } from "react-icons/bi";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import { ACTION_TYPES } from "../../utils/constant";
 import { useNavigate } from "react-router";
+import Tooltip from "@mui/material/Tooltip";
 
 function NavSearchBox() {
   const { filters, booksDataDispatch } = useContext(BooksDataContext);
@@ -40,15 +41,19 @@ function NavSearchBox() {
             onChange={handleSearchType}
           />
           <AiOutlineClose
-            className="search-icon"
+            className="search-close-icon"
             onClick={handleCloseSearchBox}
           />
         </>
       ) : (
-        <BiSearch
-          className="search-close-icon"
-          onClick={() => setShowSearchBar(true)}
-        />
+        <Tooltip title="Search" arrow>
+          <span>
+            <BiSearch
+              className="search-icon"
+              onClick={() => setShowSearchBar(true)}
+            />
+          </span>
+        </Tooltip>
       )}
     </div>
   );

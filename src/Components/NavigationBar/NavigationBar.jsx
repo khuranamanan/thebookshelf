@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
+import { AuthContext } from "../../Contexts/AuthContext";
+import Tooltip from "@mui/material/Tooltip";
 //Components
 import NavSearchBox from "./NavSearchBox";
 import NavLinks from "./NavLinks";
@@ -13,6 +15,7 @@ import { BiUserCircle } from "react-icons/bi";
 import "./NavigationBar.css";
 
 function NavigationBar() {
+  const { loginData } = useContext(AuthContext);
   const { cart } = useContext(BooksDataContext);
 
   const cartQuantityBatch = cart.length !== 0 && (
@@ -33,13 +36,17 @@ function NavigationBar() {
           <NavSearchBox />
         </span>
         <div className="navbar-addons-btns flex-center">
-          <NavLink className="shopping-bag-button" to={"/cart"}>
-            <FiShoppingBag />
-            {cartQuantityBatch}
-          </NavLink>
-          <NavLink className="sign-in-button" to={"/profile"}>
-            <BiUserCircle />
-          </NavLink>
+          <Tooltip title="Shopping Bag" arrow>
+            <NavLink className="shopping-bag-button" to={"/cart"}>
+              <FiShoppingBag />
+              {cartQuantityBatch}
+            </NavLink>
+          </Tooltip>
+          <Tooltip title={loginData.isLoggedIn ? "Profile" : "Log In"} arrow>
+            <NavLink className="sign-in-button" to={"/profile"}>
+              <BiUserCircle />
+            </NavLink>
+          </Tooltip>
         </div>
       </div>
       <span className="mobile-search-bar">

@@ -92,6 +92,7 @@
   font-family: "Alata", sans-serif;
   font-weight: 500;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .shopping-bag-button {
@@ -113,6 +114,12 @@
 .shopping-bag-button.active,
 .sign-in-button.active {
   color: var(--color-5);
+}
+
+.shopping-bag-button:hover,
+.sign-in-button:hover,
+.search-icon:hover {
+  transform: scale(1.1);
 }
 
 .hamburger-icons {
