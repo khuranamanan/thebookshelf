@@ -14,6 +14,29 @@ function Footer() {
             joy of reading.
           </p>
         </div>
+        <div className="footer-section quick-links-section">
+          <h3>Quick Links</h3>
+          <ul className="quick-links">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/products">Explore</Link>
+            </li>
+            <li>
+              <Link to="/categories">Categories</Link>
+            </li>
+            <li>
+              <Link to="/wishlist">Wishlist</Link>
+            </li>
+            <li>
+              <Link to="/cart">Cart</Link>
+            </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+          </ul>
+        </div>
         <div className="footer-section">
           <h3>Contact Us</h3>
           <p>
