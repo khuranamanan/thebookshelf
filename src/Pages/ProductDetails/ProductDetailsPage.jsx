@@ -9,7 +9,7 @@ import { BeatLoader } from "react-spinners";
 
 function ProductDetailsPage() {
   const { setLoader } = useContext(BooksDataContext);
-  const [currentBook, setCurrentBook] = useState({});
+  const [currentBook, setCurrentBook] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState();
   const { id } = useParams();
