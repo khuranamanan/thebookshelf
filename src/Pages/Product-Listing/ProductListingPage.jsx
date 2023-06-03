@@ -7,6 +7,7 @@ import { FaFilter } from "react-icons/fa";
 import Pagination from "../../Components/Pagination/Pagination";
 import img404 from "../../assets/404.jpg";
 import useDocumentTitle from "../../Hooks/useDocumentTitle";
+import { BeatLoader } from "react-spinners";
 
 function ProductListingPage() {
   const [showMobileFilters, setShowMobileFilters] = useState(false);
@@ -38,7 +39,7 @@ function ProductListingPage() {
     );
 
   const productsMapped = products?.isLoading ? (
-    <p>Loading...</p>
+    <BeatLoader color="#ffcd3c" />
   ) : products?.isError ? (
     <p>{products.isError}</p>
   ) : (

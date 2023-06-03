@@ -5,6 +5,7 @@ import ProductDetailsCard from "../../Components/ProductCard/ProductDetailsCard"
 import "./ProductDetailsPage.css";
 import useDocumentTitle from "../../Hooks/useDocumentTitle";
 import { BooksDataContext } from "../../Contexts/BooksDataContext";
+import { BeatLoader } from "react-spinners";
 
 function ProductDetailsPage() {
   const { setLoader } = useContext(BooksDataContext);
@@ -52,7 +53,13 @@ function ProductDetailsPage() {
 
   return (
     <div className="product-details-page">
-      {isLoading ? <p>Loading...</p> : isError ? <p>{isError}</p> : displayCard}
+      {isLoading ? (
+        <BeatLoader color="#ffcd3c" />
+      ) : isError ? (
+        <p>{isError}</p>
+      ) : (
+        displayCard
+      )}
     </div>
   );
 }
