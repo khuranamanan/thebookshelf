@@ -43,13 +43,13 @@
 
 .cart-button:disabled,
 .wishlist-button:disabled {
-  background-color: var(--color-11);
+  background-color: var(--color-7);
   cursor: default;
 }
 
 .cart-button:disabled:hover,
 .wishlist-button:disabled:hover {
-  background-color: var(--color-11);
+  background-color: var(--color-7);
 }
 
 .go-to-cart-button,
