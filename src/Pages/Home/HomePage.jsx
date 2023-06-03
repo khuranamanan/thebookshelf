@@ -6,6 +6,7 @@ import useDocumentTitle from "../../Hooks/useDocumentTitle";
 import { useNavigate } from "react-router";
 import { ACTION_TYPES } from "../../utils/constant";
 import CategoryCard from "../../Components/CategoryCard/CategoryCard";
+import { BeatLoader } from "react-spinners";
 
 function HomePage() {
   const { products, categories, booksDataDispatch, expensiveBookInCollection } =
@@ -71,7 +72,15 @@ function HomePage() {
             View All Bestsellers
           </button>
         </div>
-        <div className="product-card-container">{bestsellarBooksDisplay}</div>
+        <div className="product-card-container">
+          {products?.isLoading ? (
+            <BeatLoader color="#ffcd3c" />
+          ) : products?.isError ? (
+            <p>{products.isError}</p>
+          ) : (
+            bestsellarBooksDisplay
+          )}
+        </div>
       </section>
       <section className="home-page-section">
         <div className="home-page-section-heading">
@@ -83,7 +92,15 @@ function HomePage() {
             View All Categories
           </button>
         </div>
-        <div className="product-card-container">{popularCategoriesDisplay}</div>
+        <div className="product-card-container">
+          {categories.isLoading ? (
+            <BeatLoader color="#ffcd3c" />
+          ) : categories.isError ? (
+            <p>{categories.isError}</p>
+          ) : (
+            <>{popularCategoriesDisplay}</>
+          )}
+        </div>
       </section>
     </div>
   );
