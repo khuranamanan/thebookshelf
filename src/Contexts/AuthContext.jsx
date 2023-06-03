@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import logInService from "../Services/logInService";
 import signUpService from "../Services/signUpService";
 import { v4 as uuid } from "uuid";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -28,6 +29,8 @@ function AuthProvider({ children }) {
         isError: null,
       });
 
+      toast.success("Logged In!");
+
       localStorage.setItem("token", JSON.stringify({ token: encodedToken }));
       localStorage.setItem("user", JSON.stringify({ user: foundUser }));
     } catch (err) {
@@ -36,6 +39,8 @@ function AuthProvider({ children }) {
         isError: err.response.data.errors[0],
         isLoggedIn: false,
       });
+
+      toast.error(`${err.response.data.errors[0]}`);
     }
   }
 
@@ -57,6 +62,8 @@ function AuthProvider({ children }) {
         isError: null,
       });
 
+      toast.success("Successfully Signed Up!");
+
       localStorage.setItem("token", JSON.stringify({ token: encodedToken }));
       localStorage.setItem("user", JSON.stringify({ user: createdUser }));
     } catch (err) {
@@ -65,6 +72,8 @@ function AuthProvider({ children }) {
         isError: err.response.data.errors[0],
         isLoggedIn: false,
       });
+
+      toast.error(`${err.response.data.errors[0]}`);
     }
   }
 
@@ -78,6 +87,8 @@ function AuthProvider({ children }) {
 
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+
+    toast.success("Signed Out!");
   }
 
   function handleAddAddress(addressToAdd) {
@@ -94,6 +105,8 @@ function AuthProvider({ children }) {
       },
     });
 
+    toast.success("Address Added!");
+
     localStorage.setItem(
       "user",
       JSON.stringify({ ...loginData.user, userAddresses: updatedAddresses })
@@ -108,6 +121,8 @@ function AuthProvider({ children }) {
         userAddresses: updatedAddresses,
       },
     });
+
+    toast.success("Address Updated!");
 
     localStorage.setItem(
       "user",
@@ -127,6 +142,8 @@ function AuthProvider({ children }) {
         userAddresses: updatedAddresses,
       },
     });
+
+    toast.success("Address Deleted!");
 
     localStorage.setItem(
       "user",

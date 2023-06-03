@@ -1,5 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { booksDataReducer, initialState } from "../Reducers/booksDataReducer";
 import { ACTION_TYPES } from "../utils/constant";
 import filterProducts from "../utils/filterProducts";
@@ -16,6 +22,7 @@ export const BooksDataContext = createContext();
 function BooksDataProvider({ children }) {
   const [state, booksDataDispatch] = useReducer(booksDataReducer, initialState);
   const { loginData } = useContext(AuthContext);
+  const [loader, setLoader] = useState(false);
 
   const cheapestBookInCollection = state?.products?.data?.reduce(
     (result, book) => (result > book.price ? book.price : result),
@@ -27,17 +34,15 @@ function BooksDataProvider({ children }) {
     0
   );
 
-  const displayData =
-    state?.products?.data &&
-    filterProducts(
-      [...state?.products?.data],
-      state.filters,
-      expensiveBookInCollection
-    );
+  const displayData = filterProducts(
+    [...state?.products?.data],
+    state.filters,
+    expensiveBookInCollection
+  );
 
   useEffect(() => {
-    getProductsData(booksDataDispatch);
-    getCategoriesData(booksDataDispatch);
+    getProductsData(booksDataDispatch, setLoader);
+    getCategoriesData(booksDataDispatch, setLoader);
     if (loginData.isLoggedIn) {
       initialiseCart(loginData, booksDataDispatch);
       initialiseWishlist(loginData, booksDataDispatch);
@@ -65,6 +70,8 @@ function BooksDataProvider({ children }) {
         booksDataDispatch,
         cheapestBookInCollection,
         expensiveBookInCollection,
+        loader,
+        setLoader,
       }}
     >
       {children}

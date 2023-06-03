@@ -6,11 +6,12 @@ import {
 } from "../../Services/booksDataServices";
 import { ACTION_TYPES } from "../../utils/constant";
 
-export async function getProductsData(booksDataDispatch) {
+export async function getProductsData(booksDataDispatch, setLoader) {
   booksDataDispatch({
     type: ACTION_TYPES.SET_IS_LOADING,
     payload: { propName: "products", value: true },
   });
+  setLoader(true);
   try {
     const response = await getProductsDataService();
 
@@ -28,14 +29,16 @@ export async function getProductsData(booksDataDispatch) {
       type: ACTION_TYPES.SET_IS_LOADING,
       payload: { propName: "products", value: false },
     });
+    setLoader(false);
   }
 }
 
-export async function getCategoriesData(booksDataDispatch) {
+export async function getCategoriesData(booksDataDispatch, setLoader) {
   booksDataDispatch({
     type: ACTION_TYPES.SET_IS_LOADING,
     payload: { propName: "categories", value: true },
   });
+  setLoader(true);
   try {
     const response = await getCategoriesDataService();
 
@@ -53,6 +56,7 @@ export async function getCategoriesData(booksDataDispatch) {
       type: ACTION_TYPES.SET_IS_LOADING,
       payload: { propName: "categories", value: false },
     });
+    setLoader(false);
   }
 }
 

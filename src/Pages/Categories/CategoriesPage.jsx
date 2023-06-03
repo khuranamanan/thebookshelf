@@ -3,6 +3,7 @@ import { BooksDataContext } from "../../Contexts/BooksDataContext";
 import CategoryCard from "../../Components/CategoryCard/CategoryCard";
 import "./CategoriesPage.css";
 import useDocumentTitle from "../../Hooks/useDocumentTitle";
+import { BeatLoader } from "react-spinners";
 
 function CategoriesPage() {
   const { categories } = useContext(BooksDataContext);
@@ -32,7 +33,7 @@ function CategoriesPage() {
       </div>
       <div className="categories-page-content">
         {categories.isLoading ? (
-          <p>Loading...</p>
+          <BeatLoader color="#ffcd3c" />
         ) : categories.isError ? (
           <p>{categories.isError}</p>
         ) : (

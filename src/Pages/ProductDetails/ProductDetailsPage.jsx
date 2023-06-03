@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import getProductByIDService from "../../Services/getProductByIDService";
 import ProductDetailsCard from "../../Components/ProductCard/ProductDetailsCard";
 import "./ProductDetailsPage.css";
 import useDocumentTitle from "../../Hooks/useDocumentTitle";
+import { BooksDataContext } from "../../Contexts/BooksDataContext";
+import { BeatLoader } from "react-spinners";
 
 function ProductDetailsPage() {
+  const { setLoader } = useContext(BooksDataContext);
   const [currentBook, setCurrentBook] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState();
@@ -33,7 +36,8 @@ function ProductDetailsPage() {
   );
 
   useEffect(() => {
-    (async function (id) {
+    (async function (id, setLoader) {
+      setLoader(true);
       setIsLoading(true);
       try {
         const response = await getProductByIDService(id);
@@ -42,13 +46,20 @@ function ProductDetailsPage() {
         setIsError(err);
       } finally {
         setIsLoading(false);
+        setLoader(false);
       }
-    })(id);
-  }, [id]);
+    })(id, setLoader);
+  }, [id, setLoader]);
 
   return (
     <div className="product-details-page">
-      {isLoading ? <p>Loading...</p> : isError ? <p>{isError}</p> : displayCard}
+      {isLoading ? (
+        <BeatLoader color="#ffcd3c" />
+      ) : isError ? (
+        <p>{isError}</p>
+      ) : (
+        displayCard
+      )}
     </div>
   );
 }
