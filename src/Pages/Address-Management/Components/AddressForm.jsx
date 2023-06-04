@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 function AddressForm({ onSubmit, address }) {
   const [formData, setFormData] = useState({
@@ -14,6 +15,21 @@ function AddressForm({ onSubmit, address }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const trimmedFormData = Object.keys(formData).reduce((acc, key) => {
+      acc[key] = formData[key].trim();
+      return acc;
+    }, {});
+
+    const isEmptyField = Object.values(trimmedFormData).some(
+      (value) => value === ""
+    );
+
+    if (isEmptyField) {
+      toast.info("Fill all the form data to add an Address");
+      return;
+    }
+
     onSubmit(formData);
     setFormData({
       firstName: "",
