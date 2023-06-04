@@ -95,3 +95,11 @@
     font-size: 0.9rem;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .home-page-section-heading {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
