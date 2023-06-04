@@ -32,7 +32,7 @@ export const products = [
     isBestSeller: true,
     category: ["Self-Help"],
     stockQty: 30,
-    rating: 4.6,
+    rating: 3.9,
     pages: 236,
     releaseDate: "1997-09-29",
     aboutAuthor:
@@ -140,7 +140,7 @@ export const products = [
     isBestSeller: false,
     category: ["Classics"],
     stockQty: 40,
-    rating: 4.5,
+    rating: 3.8,
     pages: 180,
     releaseDate: "1925-04-10",
     aboutAuthor:
@@ -158,7 +158,7 @@ export const products = [
     isBestSeller: true,
     category: ["Coming-of-Age", "Drama"],
     stockQty: 0,
-    rating: 4.2,
+    rating: 2.9,
     pages: 277,
     releaseDate: "1951-07-16",
     aboutAuthor:
@@ -212,7 +212,7 @@ export const products = [
     isBestSeller: true,
     category: ["Mystery/Thriller"],
     stockQty: 40,
-    rating: 4.2,
+    rating: 1.9,
     pages: 336,
     releaseDate: "2015-01-13",
     aboutAuthor:

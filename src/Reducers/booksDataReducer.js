@@ -7,7 +7,7 @@ export const initialState = {
     searchKey: "",
     priceSlider: 0,
     selectedCategories: [],
-    ratingFilter: "All",
+    ratingFilter: "",
     sortFilter: "POPULARITY",
   },
   cart: [],
@@ -123,7 +123,7 @@ export function booksDataReducer(state, action) {
           searchKey: "",
           priceSlider: action.payload.rangeInitialValue,
           selectedCategories: [],
-          ratingFilter: "All",
+          ratingFilter: "",
           sortFilter: "POPULARITY",
         },
       };
@@ -136,7 +136,7 @@ export function booksDataReducer(state, action) {
           searchKey: "",
           priceSlider: action.payload.priceSlider,
           selectedCategories: [action.payload.category],
-          ratingFilter: "All",
+          ratingFilter: "",
           sortFilter: "POPULARITY",
         },
       };
@@ -178,7 +178,7 @@ export function booksDataReducer(state, action) {
           searchKey: "",
           priceSlider: action.payload.priceSlider,
           selectedCategories: [],
-          ratingFilter: "All",
+          ratingFilter: "",
           sortFilter: "BESTSELLER_FIRST",
         },
       };

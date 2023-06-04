@@ -22,12 +22,9 @@ function filterProducts(data, filters, mostExpensiveProduct) {
         )
       : filterByPriceRange;
 
-  const filterByRating =
-    filters.ratingFilter === "All"
-      ? filterByCategories
-      : filterByCategories.filter(
-          ({ rating }) => rating >= filters.ratingFilter
-        );
+  const filterByRating = filters.ratingFilter
+    ? filterByCategories.filter(({ rating }) => rating >= filters.ratingFilter)
+    : filterByCategories;
 
   let sortedResult;
 

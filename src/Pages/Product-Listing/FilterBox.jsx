@@ -102,16 +102,6 @@ function FilterBox() {
             <input
               type="radio"
               className="rating-radio-filter"
-              value="All"
-              checked={filters.ratingFilter === "All"}
-              onChange={handleRatingFilterChange}
-            />{" "}
-            All
-          </label>
-          <label>
-            <input
-              type="radio"
-              className="rating-radio-filter"
               value="4"
               checked={filters.ratingFilter === "4"}
               onChange={handleRatingFilterChange}
@@ -146,7 +136,7 @@ function FilterBox() {
               checked={filters.ratingFilter === "1"}
               onChange={handleRatingFilterChange}
             />{" "}
-            1 Stars and above
+            1 Star and above
           </label>
         </div>
 
