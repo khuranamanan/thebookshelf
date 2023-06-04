@@ -12,8 +12,8 @@ function AuthProvider({ children }) {
 
   const [loginData, setLoginData] = useState({
     token: localStorageToken?.token,
-    user: localStorageUser,
-    isLoggedIn: !!localStorageUser,
+    user: localStorageUser?.user,
+    isLoggedIn: !!localStorageUser?.user,
     isError: null,
   });
 
@@ -107,7 +107,9 @@ function AuthProvider({ children }) {
 
     localStorage.setItem(
       "user",
-      JSON.stringify({ ...loginData.user, userAddresses: updatedAddresses })
+      JSON.stringify({
+        user: { ...loginData.user, userAddresses: updatedAddresses },
+      })
     );
   }
 
@@ -124,7 +126,9 @@ function AuthProvider({ children }) {
 
     localStorage.setItem(
       "user",
-      JSON.stringify({ ...loginData.user, userAddresses: updatedAddresses })
+      JSON.stringify({
+        user: { ...loginData.user, userAddresses: updatedAddresses },
+      })
     );
   }
 
@@ -145,7 +149,9 @@ function AuthProvider({ children }) {
 
     localStorage.setItem(
       "user",
-      JSON.stringify({ ...loginData.user, userAddresses: updatedAddresses })
+      JSON.stringify({
+        user: { ...loginData.user, userAddresses: updatedAddresses },
+      })
     );
   }
 
