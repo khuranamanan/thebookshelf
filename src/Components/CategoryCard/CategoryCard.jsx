@@ -26,6 +26,7 @@ function CategoryCard({ image, categoryName, description }) {
         priceSlider: expensiveBookInCollection,
       },
     });
+    booksDataDispatch({ type: ACTION_TYPES.RESET_PRODUCTS_PAGE_NUM });
     navigate("/products");
   }
 

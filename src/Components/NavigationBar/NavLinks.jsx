@@ -1,6 +1,18 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { BooksDataContext } from "../../Contexts/BooksDataContext";
+import { ACTION_TYPES } from "../../utils/constant";
 
 function NavLinks({ isMobileNavLinks = false, mobileNavLinkClickHandler }) {
+  const { booksDataDispatch } = useContext(BooksDataContext);
+
+  function handleExploreBtnClick() {
+    if (isMobileNavLinks) {
+      mobileNavLinkClickHandler();
+    }
+    booksDataDispatch({ type: ACTION_TYPES.RESET_PRODUCTS_PAGE_NUM });
+  }
+
   return (
     <div
       className={
@@ -19,7 +31,7 @@ function NavLinks({ isMobileNavLinks = false, mobileNavLinkClickHandler }) {
       <NavLink
         className="navbar-link"
         to="/products"
-        onClick={isMobileNavLinks && mobileNavLinkClickHandler}
+        onClick={handleExploreBtnClick}
       >
         Explore
       </NavLink>

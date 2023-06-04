@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
+import { ACTION_TYPES } from "../../utils/constant";
+import { useContext } from "react";
+import { BooksDataContext } from "../../Contexts/BooksDataContext";
 
 function Footer() {
+  const { booksDataDispatch } = useContext(BooksDataContext);
+
   return (
     <div className="footer">
       <div className="footer-content">
@@ -21,7 +26,16 @@ function Footer() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/products">Explore</Link>
+              <Link
+                to="/products"
+                onClick={() =>
+                  booksDataDispatch({
+                    type: ACTION_TYPES.RESET_PRODUCTS_PAGE_NUM,
+                  })
+                }
+              >
+                Explore
+              </Link>
             </li>
             <li>
               <Link to="/categories">Categories</Link>

@@ -11,6 +11,14 @@ function FilterBox() {
     filters,
   } = useContext(BooksDataContext);
 
+  function handleCategoryFilterChange(event) {
+    booksDataDispatch({
+      type: ACTION_TYPES.SELECTED_CATEGORIES_CHANGE,
+      payload: event.target.value,
+    });
+    booksDataDispatch({ type: ACTION_TYPES.RESET_PRODUCTS_PAGE_NUM });
+  }
+
   const categoriesCheckboxesMapped = categories?.data.map((category) => (
     <label key={category._id}>
       <input
@@ -18,22 +26,26 @@ function FilterBox() {
         className="category-checkbox-filter"
         checked={filters.selectedCategories.includes(category.categoryName)}
         value={category.categoryName}
-        onChange={(event) =>
-          booksDataDispatch({
-            type: ACTION_TYPES.SELECTED_CATEGORIES_CHANGE,
-            payload: event.target.value,
-          })
-        }
+        onChange={handleCategoryFilterChange}
       />
       {category.categoryName}
     </label>
   ));
+
+  function handlePriceRangeFilterChange(event) {
+    booksDataDispatch({
+      type: ACTION_TYPES.RANGE_FILTER_CHANGE,
+      payload: event.target.value,
+    });
+    booksDataDispatch({ type: ACTION_TYPES.RESET_PRODUCTS_PAGE_NUM });
+  }
 
   function handleRatingFilterChange(event) {
     booksDataDispatch({
       type: ACTION_TYPES.RATING_FILTER_CHANGE,
       payload: event.target.value,
     });
+    booksDataDispatch({ type: ACTION_TYPES.RESET_PRODUCTS_PAGE_NUM });
   }
 
   function handleSortFilterChange(event) {
@@ -41,6 +53,15 @@ function FilterBox() {
       type: ACTION_TYPES.SORT_FILTER_CHANGE,
       payload: event.target.value,
     });
+    booksDataDispatch({ type: ACTION_TYPES.RESET_PRODUCTS_PAGE_NUM });
+  }
+
+  function handleClearFiltersBtnClick() {
+    booksDataDispatch({
+      type: ACTION_TYPES.CLEAR_ALL_FILTERS,
+      payload: { rangeInitialValue: expensiveBookInCollection },
+    });
+    booksDataDispatch({ type: ACTION_TYPES.RESET_PRODUCTS_PAGE_NUM });
   }
 
   return (
@@ -62,12 +83,7 @@ function FilterBox() {
               min={cheapestBookInCollection}
               max={expensiveBookInCollection}
               value={filters.priceSlider}
-              onChange={(event) =>
-                booksDataDispatch({
-                  type: ACTION_TYPES.RANGE_FILTER_CHANGE,
-                  payload: event.target.value,
-                })
-              }
+              onChange={handlePriceRangeFilterChange}
             />
             {filters.priceSlider}
           </label>
@@ -180,15 +196,7 @@ function FilterBox() {
         </div>
 
         {/* Clear All Filters */}
-        <button
-          className="clear-filters"
-          onClick={() =>
-            booksDataDispatch({
-              type: ACTION_TYPES.CLEAR_ALL_FILTERS,
-              payload: { rangeInitialValue: expensiveBookInCollection },
-            })
-          }
-        >
+        <button className="clear-filters" onClick={handleClearFiltersBtnClick}>
           Clear All Filters
         </button>
       </div>

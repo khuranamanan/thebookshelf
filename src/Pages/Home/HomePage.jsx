@@ -41,6 +41,13 @@ function HomePage() {
     navigate("/products");
   }
 
+  function handleExploreBooksButtonClick() {
+    booksDataDispatch({
+      type: ACTION_TYPES.RESET_PRODUCTS_PAGE_NUM,
+    });
+    navigate("/products");
+  }
+
   return (
     <div className="home-page">
       <div className="hero-section">
@@ -56,7 +63,7 @@ function HomePage() {
           </p>
           <button
             className="explore-button"
-            onClick={() => navigate("/products")}
+            onClick={handleExploreBooksButtonClick}
           >
             Explore Books
           </button>
