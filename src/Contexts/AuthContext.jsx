@@ -12,8 +12,8 @@ function AuthProvider({ children }) {
 
   const [loginData, setLoginData] = useState({
     token: localStorageToken?.token,
-    user: localStorageUser?.user,
-    isLoggedIn: !!localStorageUser?.user,
+    user: localStorageUser,
+    isLoggedIn: !!localStorageUser,
     isError: null,
   });
 
