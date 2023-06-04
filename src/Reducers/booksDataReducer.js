@@ -12,6 +12,7 @@ export const initialState = {
   },
   cart: [],
   wishlist: [],
+  paginationPage: 1,
 };
 
 export function booksDataReducer(state, action) {
@@ -181,6 +182,14 @@ export function booksDataReducer(state, action) {
           sortFilter: "BESTSELLER_FIRST",
         },
       };
+    }
+
+    case ACTION_TYPES.SET_PRODUCTS_PAGE_NUM: {
+      return { ...state, paginationPage: action.payload };
+    }
+
+    case ACTION_TYPES.RESET_PRODUCTS_PAGE_NUM: {
+      return { ...state, paginationPage: 1 };
     }
 
     default:

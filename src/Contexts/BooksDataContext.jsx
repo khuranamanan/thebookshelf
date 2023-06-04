@@ -66,6 +66,7 @@ function BooksDataProvider({ children }) {
         filters: state.filters,
         cart: state.cart,
         wishlist: state.wishlist,
+        currentPage: state.paginationPage,
         displayData,
         booksDataDispatch,
         cheapestBookInCollection,

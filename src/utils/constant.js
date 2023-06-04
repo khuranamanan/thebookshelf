@@ -24,4 +24,6 @@ export const ACTION_TYPES = {
   VIEW_BESTSELLERS: "view-bestsellers",
   SET_ORDER_DETAILS: "set-order-details",
   SET_ORDER_ADDRESS: "set-order-address",
+  SET_PRODUCTS_PAGE_NUM: "set-products-page-num",
+  RESET_PRODUCTS_PAGE_NUM: "reset-products-page-num",
 };

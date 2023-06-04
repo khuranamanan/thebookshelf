@@ -8,11 +8,12 @@ import Pagination from "../../Components/Pagination/Pagination";
 import img404 from "../../assets/404.jpg";
 import useDocumentTitle from "../../Hooks/useDocumentTitle";
 import { BeatLoader } from "react-spinners";
+import { ACTION_TYPES } from "../../utils/constant";
 
 function ProductListingPage() {
   const [showMobileFilters, setShowMobileFilters] = useState(false);
-  const { products, displayData } = useContext(BooksDataContext);
-  const [currentPage, setCurrentPage] = useState(1);
+  const { products, displayData, booksDataDispatch, currentPage } =
+    useContext(BooksDataContext);
   useDocumentTitle("Products | The Bookshelf");
 
   const booksPerPage = 12;
@@ -21,7 +22,10 @@ function ProductListingPage() {
   const currentBooks = displayData?.slice(indexOfFirstBook, indexOfLastBook);
 
   function paginate(pageNumber) {
-    setCurrentPage(pageNumber);
+    booksDataDispatch({
+      type: ACTION_TYPES.SET_PRODUCTS_PAGE_NUM,
+      payload: pageNumber,
+    });
   }
 
   const noBooksFoundDisplay = products?.data.length !== 0 &&
@@ -76,6 +80,7 @@ function ProductListingPage() {
         booksPerPage={booksPerPage}
         totalBooks={displayData.length}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </div>
   );
