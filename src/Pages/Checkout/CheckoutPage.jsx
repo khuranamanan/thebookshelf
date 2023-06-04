@@ -23,6 +23,7 @@ function CheckoutPage() {
   }
 
   const addressOptionMapped =
+    loginData?.user?.userAddresses &&
     loginData?.user?.userAddresses.length !== 0 ? (
       loginData?.user?.userAddresses.map((address) => (
         <div key={address.id} className="address-option">
@@ -60,7 +61,7 @@ function CheckoutPage() {
     if (cart.length === 0) {
       navigate("/products");
     }
-    if (cart.length !== 0) {
+    if (cart.length !== 0 && loginData?.user?.userAddresses) {
       orderDispatch({
         type: ACTION_TYPES.SET_ORDER_ADDRESS,
         payload: loginData?.user?.userAddresses[0],

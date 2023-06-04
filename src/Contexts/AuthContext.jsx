@@ -45,7 +45,6 @@ function AuthProvider({ children }) {
   }
 
   async function signUpUser(email, password, firstName, lastName) {
-    console.log("sending this:", email, password, firstName, lastName);
     try {
       const response = await signUpService(
         email,
@@ -92,10 +91,9 @@ function AuthProvider({ children }) {
   }
 
   function handleAddAddress(addressToAdd) {
-    const updatedAddresses = [
-      ...loginData.user.userAddresses,
-      { ...addressToAdd, id: uuid() },
-    ];
+    const updatedAddresses = loginData?.user?.userAddresses
+      ? [...loginData?.user?.userAddresses, { ...addressToAdd, id: uuid() }]
+      : [{ ...addressToAdd, id: uuid() }];
 
     setLoginData({
       ...loginData,
