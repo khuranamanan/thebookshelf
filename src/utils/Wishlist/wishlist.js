@@ -5,12 +5,7 @@ import {
 import { ACTION_TYPES } from "../constant";
 import { toast } from "react-toastify";
 
-export async function addToWishlist(
-  booksDataDispatch,
-  product,
-  token,
-  setBtnDisabled
-) {
+export async function addToWishlist(booksDataDispatch, product, token) {
   try {
     const response = await addToWishlistService(product, token);
     booksDataDispatch({
@@ -21,8 +16,6 @@ export async function addToWishlist(
   } catch (err) {
     console.log("Error from Add to Wishlist:", err);
     toast.error(`Failed to Add "${product.title}" to Wishlist`);
-  } finally {
-    setBtnDisabled && setBtnDisabled(false);
   }
 }
 

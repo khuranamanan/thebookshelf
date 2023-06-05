@@ -6,6 +6,7 @@ import { removeFromCart, updateQtyInCart } from "../../utils/Cart/cart";
 import { isProductInWishlist } from "../../utils/Wishlist/isProductInWishlist";
 import { addToWishlist } from "../../utils/Wishlist/wishlist";
 import { useNavigate } from "react-router";
+import debounce from "lodash/debounce";
 
 function CartCard({ data }) {
   const { loginData } = useContext(AuthContext);
@@ -15,27 +16,27 @@ function CartCard({ data }) {
 
   const isInWishlist = isProductInWishlist(wishlist, _id);
 
-  function handleIncreaseQtyBtn(productID, action) {
+  const debouncedIncreaseQty = debounce((productID, action) => {
     updateQtyInCart(booksDataDispatch, productID, loginData.token, action);
-  }
+  }, 300);
 
-  function handleDecreaseQtyBtn(quantity, productID, action) {
-    if (quantity === 1) {
-      removeFromCart(booksDataDispatch, productID, loginData.token);
+  const debouncedDecreaseQty = debounce((quantity, productID, action) => {
+    if (quantity <= 1) {
+      debouncedRemoveFromCart(productID);
     } else {
       updateQtyInCart(booksDataDispatch, productID, loginData.token, action);
     }
-  }
+  }, 300);
 
-  function handleRemoveFromCartBtnClick(productID) {
+  const debouncedRemoveFromCart = debounce((productID) => {
     removeFromCart(booksDataDispatch, productID, loginData.token);
-  }
+  }, 300);
 
-  function handleRemoveFromWishlistBtnClick(productID) {
+  function handleMoveToWishlistBtnClick(productID) {
     if (isInWishlist) {
       navigate("/wishlist");
     } else {
-      removeFromCart(booksDataDispatch, productID, loginData.token);
+      debouncedRemoveFromCart(productID);
       addToWishlist(booksDataDispatch, data, loginData.token);
     }
   }
@@ -55,14 +56,15 @@ function CartCard({ data }) {
         <div className="cart-card-quantity">
           <button
             className="cart-card-btn"
-            onClick={() => handleDecreaseQtyBtn(qty, _id, "decrement")}
+            onClick={() => debouncedDecreaseQty(qty, _id, "decrement")}
+            disabled={qty <= 0}
           >
             -
           </button>
           <span className="cart-card-qty">{qty}</span>
           <button
             className="cart-card-btn"
-            onClick={() => handleIncreaseQtyBtn(_id, "increment")}
+            onClick={() => debouncedIncreaseQty(_id, "increment")}
           >
             +
           </button>
@@ -70,13 +72,13 @@ function CartCard({ data }) {
         <div className="cart-card-buttons">
           <button
             className="cart-card-remove-btn"
-            onClick={() => handleRemoveFromCartBtnClick(_id)}
+            onClick={() => debouncedRemoveFromCart(_id)}
           >
             Remove From Cart
           </button>
           <button
             className="cart-card-wishlist-btn"
-            onClick={() => handleRemoveFromWishlistBtnClick(_id)}
+            onClick={() => handleMoveToWishlistBtnClick(_id)}
           >
             {isInWishlist ? "Already in Wishlist" : "Move to Wishlist"}
           </button>

@@ -6,12 +6,7 @@ import {
 } from "../../Services/Cart/cartServices";
 import { toast } from "react-toastify";
 
-export async function addToCart(
-  booksDataDispatch,
-  token,
-  product,
-  setBtnDisabled
-) {
+export async function addToCart(booksDataDispatch, token, product) {
   try {
     const response = await addToCartService(product, token);
     booksDataDispatch({
@@ -22,8 +17,6 @@ export async function addToCart(
   } catch (err) {
     console.log("Error From Add to Cart:", err.message);
     toast.error(`Failed to Add "${product.title}" to Bag`);
-  } finally {
-    setBtnDisabled(false);
   }
 }
 
