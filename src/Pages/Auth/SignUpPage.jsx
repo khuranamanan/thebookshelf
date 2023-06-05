@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./SignUpPage.css";
 import signUpImg from "../../assets/SignUpPageImg.jpg";
 import logo from "../../assets/Colorlogo.png";
@@ -22,6 +22,7 @@ function SignUpPage() {
     confirmPassword: false,
   });
   const navigate = useNavigate();
+  const location = useLocation();
   useDocumentTitle("Sign Up | The Bookshelf");
 
   function handleSignUpFormSubmit(e) {
@@ -85,9 +86,9 @@ function SignUpPage() {
 
   useEffect(() => {
     if (loginData.isLoggedIn) {
-      navigate("/", { replace: true });
+      navigate(location?.state?.from || "/", { replace: true });
     }
-  }, [loginData.isLoggedIn, navigate]);
+  }, [location?.state?.from, loginData.isLoggedIn, navigate]);
 
   return (
     <div className="signup-page">
@@ -177,7 +178,17 @@ function SignUpPage() {
         {formInputErrorDisplay}
         {apiErrorDisplay}
         <div className="existing-user-prompt">
-          Existing user? <Link to="/login">Log In</Link>
+          Existing user?{" "}
+          <button
+            onClick={() =>
+              navigate("/login", {
+                state: { from: location?.state?.from || "/" },
+              })
+            }
+            className="log-in-link-button"
+          >
+            Log In
+          </button>
         </div>
       </div>
       <div className="quote-box">

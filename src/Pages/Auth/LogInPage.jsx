@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./LogInPage.css";
 import logInImg from "../../assets/LogInPageImg.jpg";
 import logo from "../../assets/Colorlogo.png";
@@ -109,7 +109,17 @@ function LogInPage() {
         {loginErrorHandler}
         {formInputErrorDisplay}
         <div className="new-user-prompt">
-          New user? <Link to="/signup">Sign Up</Link>
+          New user?{" "}
+          <button
+            onClick={() =>
+              navigate("/signup", {
+                state: { from: location?.state?.from || "/" },
+              })
+            }
+            className="sign-up-link-button"
+          >
+            Sign Up
+          </button>
         </div>
       </div>
     </div>

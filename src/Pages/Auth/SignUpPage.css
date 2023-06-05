@@ -119,6 +119,20 @@ input[type="password"] {
   text-align: center;
 }
 
+.log-in-link-button {
+  color: var(--color-9);
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 5px;
+}
+
+.log-in-link-button:hover {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 768px) {
   .signup-page {
     flex-direction: column;
