@@ -7,14 +7,18 @@ import { useNavigate } from "react-router";
 import Tooltip from "@mui/material/Tooltip";
 
 function NavSearchBox() {
-  const { filters, booksDataDispatch } = useContext(BooksDataContext);
+  const { filters, booksDataDispatch, expensiveBookInCollection } =
+    useContext(BooksDataContext);
   const [showSearchBar, setShowSearchBar] = useState(false);
   const navigate = useNavigate();
 
   function handleSearchType(event) {
     booksDataDispatch({
       type: ACTION_TYPES.SEARCH_KEY_CHANGE,
-      payload: event.target.value.trim(),
+      payload: {
+        searchKey: event.target.value.trim(),
+        priceSlider: expensiveBookInCollection,
+      },
     });
     if (event.target.value.trim()) {
       navigate("/products");
@@ -25,7 +29,10 @@ function NavSearchBox() {
     setShowSearchBar(false);
     booksDataDispatch({
       type: ACTION_TYPES.SEARCH_KEY_CHANGE,
-      payload: "",
+      payload: {
+        searchKey: "",
+        priceSlider: expensiveBookInCollection,
+      },
     });
   }
 

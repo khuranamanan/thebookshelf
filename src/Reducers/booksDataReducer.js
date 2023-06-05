@@ -73,7 +73,14 @@ export function booksDataReducer(state, action) {
     case ACTION_TYPES.SEARCH_KEY_CHANGE: {
       return {
         ...state,
-        filters: { ...state.filters, searchKey: action.payload },
+        filters: {
+          ...state.filters,
+          searchKey: action.payload.searchKey,
+          priceSlider: action.payload.priceSlider,
+          selectedCategories: [],
+          ratingFilter: "",
+          sortFilter: "POPULARITY",
+        },
       };
     }
 
