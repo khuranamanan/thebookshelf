@@ -30,11 +30,12 @@
   display: flex;
   width: 100%;
   margin: 0 0 15px 0;
-  gap: 1rem;
+  gap: 0.8rem;
+  padding: 0 8px;
 }
 
 .product-listing-page .product-listing-content .filter-box {
-  width: 15rem;
+  width: 14rem;
   background-color: var(--color-7);
   height: fit-content;
   background-color: var(--color-3);
